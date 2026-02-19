@@ -31,6 +31,10 @@ body{
   padding-bottom:18px;
   border-bottom:1px solid var(--rule);
   margin-bottom:28px;
+
+  max-width: 640px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .site-title{
@@ -178,6 +182,7 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
 
 
