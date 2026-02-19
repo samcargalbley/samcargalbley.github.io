@@ -16,12 +16,13 @@ body{
   color:var(--text);
   font:16px/1.65 Aptos, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   letter-spacing:0.01em;
+  font-weight: 400;
 }
 
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 56px 20px;
+  padding: 72px 20px 56px;
 }
 
 /* Header (centered) */
@@ -54,7 +55,7 @@ body{
 
 .nav a[aria-current="page"]{
   color:var(--fg);
-  font-weight:600;
+  font-weight:500;
 }
 
 .site-location{
@@ -111,16 +112,21 @@ body{
   min-width: 0;
 }
 
+.main,
+.content{
+  max-width: 640px;
+}
+
 h1{
-  font-size: 26px;
-  margin: 0 0 14px 0;
-  font-weight:600;
+  font-size:26px;
+  margin:0 0 14px 0;
+  font-weight:500;
 }
 
 h2{
-  font-size: 16px;
-  margin: 22px 0 10px 0;
-  font-weight:600;
+  font-size:16px;
+  margin:22px 0 10px 0;
+  font-weight:500;
 }
 
 p{ margin: 0 0 14px 0; }
@@ -130,7 +136,7 @@ a{
   text-decoration:none;
 }
 a:hover{
-  color: var(--fg);
+  color:#000;
 }
 
 .contact a{
@@ -160,6 +166,7 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
 
 
