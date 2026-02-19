@@ -9,8 +9,6 @@
 
 <body>
   <div class="wrap">
-
-    <!-- HEADER -->
     <header class="header">
       <h1 class="site-title">Sam Cargal-Bley</h1>
       <div class="site-location">New York, New York</div>
@@ -24,12 +22,8 @@
       </nav>
     </header>
 
-    <!-- TWO COLUMN LAYOUT -->
     <div class="layout">
-
-      <!-- SIDEBAR -->
       <aside class="sidebar">
-        <p class="section-label">Links</p>
         <ul>
           <li><a href="#energy">Energy</a></li>
           <li><a href="#finance">Finance</a></li>
@@ -37,21 +31,17 @@
         </ul>
       </aside>
 
-      <!-- MAIN CONTENT -->
       <main class="content">
-
         <h1>Links</h1>
 
-        <!-- ENERGY -->
         <h2 id="energy">Energy</h2>
         <ul>
           <li><a href="https://www.eia.gov/">EIA</a></li>
           <li><a href="https://www.ferc.gov/">FERC</a></li>
           <li><a href="https://www.utilitydive.com/">Utility Dive</a></li>
-          <li><a href="https://heatmap.news/">Heatmap News</a></li>
+          <li><a href="https://heatmap.news/">Heatmap</a></li>
         </ul>
 
-        <!-- FINANCE -->
         <h2 id="finance">Finance</h2>
         <ul>
           <li><a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a></li>
@@ -59,28 +49,20 @@
           <li><a href="https://www.tradingview.com/">TradingView</a></li>
         </ul>
 
-        <!-- READING -->
         <h2 id="reading">Reading</h2>
         <ul>
           <li><a href="https://longform.org/">Longform</a></li>
           <li><a href="https://www.newyorker.com/">The New Yorker</a></li>
           <li><a href="https://www.lrb.co.uk/">London Review of Books</a></li>
         </ul>
-
       </main>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      © <span id="y"></span>
-    </footer>
-
+    <footer class="footer">© <span id="y"></span></footer>
   </div>
 
   <script>
-    document.getElementById("y").textContent =
-      new Date().getFullYear();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
