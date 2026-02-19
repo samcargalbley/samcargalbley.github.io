@@ -1,10 +1,12 @@
 :root{
-  --bg:#fbfbfb;          /* lighter, soft */
-  --fg:#111111;          /* true black-ish (for your name) */
-  --text:#2a2a2a;        /* softer body text */
-  --muted:#7a7a7a;       /* softer nav/sidebar */
+  --bg:#fbfbfb;
+  --fg:#111111;
+  --text:#2a2a2a;
+  --muted:#7a7a7a;
   --rule:#ececec;
+
   --max: 860px;
+  --measure: 640px;
 }
 
 *{ box-sizing:border-box; }
@@ -16,40 +18,51 @@ body{
   color:var(--text);
   font:16px/1.65 Aptos, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   letter-spacing:0.01em;
-  font-weight: 400;
+  font-weight:400;
 }
 
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 72px 20px 56px;
+  padding: 80px 20px 56px;
 }
 
-/* Header (centered) */
+/* Header (Conrad-ish: caps + tracking + quiet) */
 .header{
   text-align:center;
-  padding-bottom:18px;
+  padding-bottom:22px;
   border-bottom:1px solid var(--rule);
-  margin-bottom:28px;
+  margin: 0 auto 34px;
 
-  max-width: 640px;
-  margin-left:auto;
-  margin-right:auto;
+  max-width: var(--measure);
 }
 
 .site-title{
   margin:0 0 10px 0;
   font-weight:600;
-  font-size:44px;
-  letter-spacing:-0.01em;
-  color: var(--fg);
+  font-size:42px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--fg);
 }
 
+.site-location{
+  margin: 0 0 16px 0;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+}
+
+/* Nav */
 .nav{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:22px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:12px;
 }
 
 .nav a{
@@ -57,35 +70,34 @@ body{
   text-decoration:none;
 }
 
+.nav a:hover{
+  color:var(--fg);
+}
+
 .nav a[aria-current="page"]{
   color:var(--fg);
   font-weight:500;
 }
 
-.site-location{
-  margin: 0 0 14px 0;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-/* Layout with subtle sidebar */
+/* Layout */
 .layout{
   display:flex;
-  gap:40px;
+  gap:44px;
   align-items:flex-start;
 }
 
 .sidebar{
   flex: 0 0 180px;
-  padding-top: 6px;
+  padding-top: 2px;
 }
 
-.sidebar .section-label{
-  color:var(--muted);
-  font-size: 13px;
-  margin: 0 0 10px 0;
-  text-transform: none;
-  letter-spacing: 0.01em;
+.sidebar ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
 .sidebar a{
@@ -99,38 +111,28 @@ body{
 
 .sidebar a[aria-current="page"]{
   color:var(--fg);
-  font-weight:600;
+  font-weight:500;
 }
 
-.sidebar ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
+/* Content */
 .content{
   flex: 1 1 auto;
   min-width: 0;
-}
-
-.main,
-.content{
-  max-width: 640px;
+  max-width: var(--measure);
 }
 
 h1{
-  font-size:26px;
+  font-size:24px;
   margin:0 0 14px 0;
   font-weight:500;
+  color: var(--fg);
 }
 
 h2{
-  font-size:16px;
-  margin:22px 0 10px 0;
+  font-size:15px;
+  margin:26px 0 10px 0;
   font-weight:500;
+  color: var(--fg);
 }
 
 p{ margin: 0 0 14px 0; }
@@ -139,16 +141,19 @@ a{
   color:inherit;
   text-decoration:none;
 }
+
 a:hover{
-  color:#000;
+  color: var(--fg);
 }
 
+/* Only contact links are underlined */
 .contact a{
   color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+/* Lists */
 ul{
   padding-left: 18px;
   margin: 8px 0 16px 0;
@@ -156,38 +161,46 @@ ul{
 
 .muted{ color:var(--muted); }
 
+/* Blog post sub-links */
 .posts{
   list-style: none;
   padding-left: 0;
-  margin-left: 0;
-}
-.posts li{
-  margin-left: 18px;   /* indent */
+  margin: 8px 0 18px 0;
 }
 
+.posts li{
+  margin-left: 18px;
+  margin-top: 6px;
+}
+
+.posts a{
+  color: var(--muted);
+}
+
+.posts a:hover{
+  color: var(--fg);
+}
+
+/* Smooth section jumps */
+html { scroll-behavior: smooth; }
+h2 { scroll-margin-top: 24px; }
+
+/* Footer */
 .footer{
   border-top:1px solid var(--rule);
-  margin-top:40px;
+  margin-top:46px;
   padding-top:18px;
   color:var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 
   display:flex;
   justify-content:center;
   width:100%;
 }
 
-/* Mobile: stack sidebar above content */
+/* Mobile */
 @media (max-width: 740px){
+  .wrap{ padding: 56px 20px 48px; }
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
-
-
-
-
-
-
-
-
-
