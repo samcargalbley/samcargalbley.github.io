@@ -156,9 +156,12 @@ ul{
   border-top:1px solid var(--rule);
   margin-top:40px;
   padding-top:18px;
-  text-align:center;
   color:var(--muted);
   font-size: 14px;
+
+  display:flex;
+  justify-content:center;
+  width:100%;
 }
 
 /* Mobile: stack sidebar above content */
@@ -166,6 +169,7 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
 
 
