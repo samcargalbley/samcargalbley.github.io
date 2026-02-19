@@ -11,6 +11,7 @@
 html,body{ height:100%; }
 
 body{
+  background: #ff00ff !important;
   margin:0;
   background:var(--bg);
   color:var(--text);
@@ -162,5 +163,6 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
 
