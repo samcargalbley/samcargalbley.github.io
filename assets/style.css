@@ -90,8 +90,6 @@ body{
 
 .sidebar a:hover{
   color:var(--fg);
-  text-decoration:underline;
-  text-underline-offset:3px;
 }
 
 .sidebar a[aria-current="page"]{
@@ -162,6 +160,7 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
 
 
