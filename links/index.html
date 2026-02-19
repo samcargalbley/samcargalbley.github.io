@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Links — Sam Cargal-Bley</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a aria-current="page" href="/links/">Links</a>
+        <a href="/blogs/">Blogs</a>
+        <a href="/news/">News</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h1>Links</h1>
+
+      <h2>Energy</h2>
+      <ul>
+        <li><a href="https://www.eia.gov/">EIA</a></li>
+        <li><a href="https://www.ferc.gov/">FERC</a></li>
+      </ul>
+
+      <h2>Finance</h2>
+      <ul>
+        <li><a href="https://www.sec.gov/edgar/search/">SEC EDGAR</a></li>
+      </ul>
+    </main>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
