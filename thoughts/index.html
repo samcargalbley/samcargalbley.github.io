@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thoughts — Sam Cargal-Bley</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <nav class="nav">
+        <a href="/">About</a>
+        <a aria-current="page" href="/thoughts/">Thoughts</a>
+        <a href="/links/">Links</a>
+        <a href="/blogs/">Blogs</a>
+        <a href="/news/">News</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="section-label">Thoughts</p>
+        <ul>
+          <li><a aria-current="page" href="/thoughts/">Index</a></li>
+          <!-- Later: add more pages like /thoughts/2026-02-19.html -->
+        </ul>
+      </aside>
+
+      <main class="content">
+        <h1>Thoughts</h1>
+        <ul>
+          <li><span class="muted">2026-02-19</span> — Setting up this site.</li>
+        </ul>
+      </main>
+    </div>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
