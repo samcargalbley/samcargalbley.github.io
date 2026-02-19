@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blogs — Sam Cargal-Bley</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/links/">Links</a>
+        <a aria-current="page" href="/blogs/">Blogs</a>
+        <a href="/news/">News</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <p class="section-label">Blogs</p>
+        <ul>
+          <li><a aria-current="page" href="/blogs/">Index</a></li>
+          <!-- Later: add subpages like /blogs/energy.html, /blogs/writing.html -->
+        </ul>
+      </aside>
+
+      <main class="content">
+        <h1>Blogs</h1>
+        <ul>
+          <li><a href="https://conradbastable.com/">Conrad Bastable</a></li>
+          <li><a href="https://julian.digital/">Julian</a></li>
+        </ul>
+      </main>
+    </div>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
