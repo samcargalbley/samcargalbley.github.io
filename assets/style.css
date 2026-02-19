@@ -7,15 +7,6 @@
   --max: 860px;
 }
 
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0c0c0c;
-    --fg:#f2f2f2;
-    --muted:#a0a0a0;
-    --rule:#222222;
-  }
-}
-
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
@@ -171,4 +162,5 @@ ul{
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
 
