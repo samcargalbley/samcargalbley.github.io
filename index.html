@@ -1,41 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sam Cargal-Bley</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sam Cargal-Bley</title>
+  <meta name="description" content="Sam Cargal-Bley" />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
-
 <body>
-<div class="wrap">
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <nav class="nav">
+        <a aria-current="page" href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/links/">Links</a>
+        <a href="/blogs/">Blogs</a>
+        <a href="/news/">News</a>
+      </nav>
+    </header>
 
-<header>
-<h1>Sam Cargal-Bley</h1>
-<nav>
-<a href="now.html">Now</a>
-<a href="content/links.html">Links</a>
-<a href="content/news.html">News</a>
-<a href="content/blogs.html">Blogs</a>
-<a href="content/tools.html">Tools</a>
-<a href="about.html">About</a>
-</nav>
-</header>
+    <main class="content">
+      <h1>About</h1>
+      <p>
+        <!-- Replace with your actual about text. Keep it short. -->
+        I work in and around energy, finance, and infrastructure. This site is a small home for reading, links, and notes.
+      </p>
 
-<main>
-<p class="lede">
-A small personal index — links, reading, and notes.
-</p>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
+      </ul>
+    </main>
 
-<h2>Start</h2>
-<ul>
-<li><a href="content/links.html">Links</a></li>
-<li><a href="content/news.html">News</a></li>
-<li><a href="content/blogs.html">Blogs</a></li>
-</ul>
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
 
-</main>
-
-</div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
