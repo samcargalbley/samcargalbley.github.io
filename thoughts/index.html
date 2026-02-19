@@ -9,8 +9,6 @@
 
 <body>
   <div class="wrap">
-
-    <!-- HEADER -->
     <header class="header">
       <h1 class="site-title">Sam Cargal-Bley</h1>
       <div class="site-location">New York, New York</div>
@@ -24,10 +22,7 @@
       </nav>
     </header>
 
-    <!-- LAYOUT -->
     <div class="layout">
-
-      <!-- SIDEBAR -->
       <aside class="sidebar">
         <ul>
           <li><a aria-current="page" href="/thoughts/">2026-02-19</a></li>
@@ -36,37 +31,21 @@
         </ul>
       </aside>
 
-      <!-- CONTENT -->
       <main class="content">
         <h1>Thoughts</h1>
-
         <ul>
-          <li>
-            <span class="muted">2026-02-19</span> — Setting up this site.
-          </li>
-          <li>
-            <span class="muted">2026-02-18</span> — Researched how to create this site.
-          </li>
-          <li>
-            <span class="muted">2026-02-17</span> — Thought of this site.
-          </li>
+          <li><span class="muted">2026-02-19</span> — Setting up this site.</li>
+          <li><span class="muted">2026-02-18</span> — Researched how to create this site.</li>
+          <li><span class="muted">2026-02-17</span> — Thought of this site.</li>
         </ul>
-
       </main>
-
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      © <span id="y"></span>
-    </footer>
-
+    <footer class="footer">© <span id="y"></span></footer>
   </div>
 
   <script>
-    document.getElementById("y").textContent =
-      new Date().getFullYear();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
