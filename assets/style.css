@@ -204,3 +204,53 @@ h2 { scroll-margin-top: 24px; }
   .layout{ flex-direction:column; gap:18px; }
   .sidebar{ flex: 1 1 auto; padding-top:0; }
 }
+
+/* --- TYPESSETTING REFINEMENT --- */
+
+/* Slightly larger reading size (feels editorial immediately) */
+.content{
+  font-size:17px;
+  line-height:1.72;
+  text-rendering: optimizeLegibility;
+}
+
+/* Paragraph rhythm */
+p{
+  margin:0 0 18px 0;
+}
+
+/* Section spacing — creates hierarchy without lines */
+h1{
+  margin-bottom:18px;
+}
+
+h2{
+  margin-top:34px;
+  margin-bottom:12px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  font-size:13px;
+}
+
+/* Lists read like prose instead of UI */
+ul{
+  margin:12px 0 20px 0;
+}
+
+/* Sidebar alignment — matches first text baseline */
+.sidebar{
+  padding-top:4px;
+}
+
+/* Subtle visual calm: reduce contrast slightly */
+.nav a{
+  opacity:0.85;
+}
+.nav a:hover{
+  opacity:1;
+}
+
+/* Blog post links feel secondary */
+.posts a{
+  font-size:15px;
+}
