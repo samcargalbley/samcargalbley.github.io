@@ -88,7 +88,11 @@ body{
 
 .sidebar{
   flex: 0 0 180px;
-  padding-top: 2px;
+  padding-top:4px;
+
+  position: sticky;
+  top: 110px;
+  align-self: flex-start;
 }
 
 .sidebar ul{
@@ -253,4 +257,20 @@ ul{
 /* Blog post links feel secondary */
 .posts a{
   font-size:15px;
+}
+
+/* --- Sidebar presence refinement --- */
+
+.sidebar{
+  opacity:0.65;
+  transition: opacity 220ms ease;
+}
+
+.sidebar:hover{
+  opacity:1;
+}
+
+/* When page scrolls, sidebar feels more present */
+body.scrolled .sidebar{
+  opacity:0.9;
 }
