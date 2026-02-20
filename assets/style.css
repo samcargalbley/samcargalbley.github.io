@@ -274,3 +274,19 @@ ul{
 body.scrolled .sidebar{
   opacity:0.9;
 }
+
+/* --- Sidebar: only strong while actively scrolling --- */
+.sidebar{
+  opacity:0.6;
+  transition: opacity 220ms ease;
+}
+
+body.scrolling .sidebar{
+  opacity:1;
+}
+
+/* --- Scrollspy active item --- */
+.sidebar a.is-active{
+  color: var(--fg);
+  font-weight: 500;
+}
