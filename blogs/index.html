@@ -96,3 +96,63 @@
 </script>
 </body>
 </html>
+
+<script>
+  // 1) Sidebar only strong while actively scrolling
+  let scrollTimer;
+  window.addEventListener("scroll", () => {
+    document.body.classList.add("scrolling");
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      document.body.classList.remove("scrolling");
+    }, 180);
+  });
+
+  // 2) Scrollspy: highlight sidebar item for the section you're reading
+  (function () {
+    const sidebar = document.querySelector(".sidebar");
+    if (!sidebar) return;
+
+    const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+    if (!links.length) return;
+
+    // Map href (#id) -> link
+    const linkById = new Map();
+    links.forEach(a => {
+      const id = a.getAttribute("href").slice(1);
+      if (id) linkById.set(id, a);
+    });
+
+    const targets = Array.from(linkById.keys())
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!targets.length) return;
+
+    const setActive = (id) => {
+      links.forEach(a => a.classList.remove("is-active"));
+      const a = linkById.get(id);
+      if (a) a.classList.add("is-active");
+    };
+
+    // Use IntersectionObserver for smooth + efficient tracking
+    const observer = new IntersectionObserver((entries) => {
+      // Pick the entry closest to the top that is intersecting
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visible.length) setActive(visible[0].target.id);
+    }, {
+      // This makes "current section" feel right while reading
+      root: null,
+      threshold: [0.1, 0.25, 0.5],
+      rootMargin: "-15% 0px -70% 0px"
+    });
+
+    targets.forEach(t => observer.observe(t));
+
+    // Initialize highlight to first section
+    setActive(targets[0].id);
+  })();
+</script>
