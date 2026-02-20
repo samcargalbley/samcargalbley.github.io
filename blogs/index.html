@@ -44,7 +44,7 @@
           <li><a href="https://www.notboring.co/p/the-electric-slide">the electric slide</a></li>
           <li><a href="https://www.notboring.co/p/power-in-the-age-of-intelligence">power in the age of intelligence</a></li>
         </ul>
-        
+
         <h2 id="conrad"><a href="https://www.conradbastable.com/">Conrad Bastable</a></h2>
         <p class="muted">
           Essays on attention, taste, and modern work — usually anchored in a small observation
@@ -74,7 +74,6 @@
           <li><a href="https://paulgraham.com/words.html">putting ideas into words</a></li>
           <li><a href="https://paulgraham.com/getideas.html">how to get new ideas</a></li>
         </ul>
-        
       </main>
     </div>
 
@@ -82,77 +81,60 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Sidebar only strong while actively scrolling
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove("scrolling");
+      }, 180);
+    });
+
+    // Scrollspy: highlight sidebar item for the section you're reading
+    (function () {
+      const sidebar = document.querySelector(".sidebar");
+      if (!sidebar) return;
+
+      const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+      if (!links.length) return;
+
+      const linkById = new Map();
+      links.forEach(a => {
+        const id = a.getAttribute("href").slice(1);
+        if (id) linkById.set(id, a);
+      });
+
+      const targets = Array.from(linkById.keys())
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      if (!targets.length) return;
+
+      const setActive = (id) => {
+        links.forEach(a => a.classList.remove("is-active"));
+        const a = linkById.get(id);
+        if (a) a.classList.add("is-active");
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible.length) setActive(visible[0].target.id);
+      }, {
+        root: null,
+        threshold: [0.1, 0.25, 0.5],
+        rootMargin: "-15% 0px -70% 0px"
+      });
+
+      targets.forEach(t => observer.observe(t));
+      setActive(targets[0].id);
+    })();
   </script>
-  <script>
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      document.body.classList.add("scrolled");
-    } else {
-      document.body.classList.remove("scrolled");
-    }
-  };
-  window.addEventListener("scroll", onScroll);
-</script>
 </body>
 </html>
-
-<script>
-  // 1) Sidebar only strong while actively scrolling
-  let scrollTimer;
-  window.addEventListener("scroll", () => {
-    document.body.classList.add("scrolling");
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      document.body.classList.remove("scrolling");
-    }, 180);
-  });
-
-  // 2) Scrollspy: highlight sidebar item for the section you're reading
-  (function () {
-    const sidebar = document.querySelector(".sidebar");
-    if (!sidebar) return;
-
-    const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
-    if (!links.length) return;
-
-    // Map href (#id) -> link
-    const linkById = new Map();
-    links.forEach(a => {
-      const id = a.getAttribute("href").slice(1);
-      if (id) linkById.set(id, a);
-    });
-
-    const targets = Array.from(linkById.keys())
-      .map(id => document.getElementById(id))
-      .filter(Boolean);
-
-    if (!targets.length) return;
-
-    const setActive = (id) => {
-      links.forEach(a => a.classList.remove("is-active"));
-      const a = linkById.get(id);
-      if (a) a.classList.add("is-active");
-    };
-
-    // Use IntersectionObserver for smooth + efficient tracking
-    const observer = new IntersectionObserver((entries) => {
-      // Pick the entry closest to the top that is intersecting
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-      if (visible.length) setActive(visible[0].target.id);
-    }, {
-      // This makes "current section" feel right while reading
-      root: null,
-      threshold: [0.1, 0.25, 0.5],
-      rootMargin: "-15% 0px -70% 0px"
-    });
-
-    targets.forEach(t => observer.observe(t));
-
-    // Initialize highlight to first section
-    setActive(targets[0].id);
-  })();
-</script>
