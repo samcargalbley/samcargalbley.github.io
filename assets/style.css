@@ -278,7 +278,7 @@ body.scrolled .sidebar{
 /* --- Sidebar: only strong while actively scrolling --- */
 .sidebar{
   opacity:0.6;
-  transition: opacity 520ms ease;
+  transition: opacity 650ms ease;
 }
 
 body.scrolling .sidebar{
@@ -290,4 +290,5 @@ body.scrolling .sidebar{
   color: var(--fg);
   font-weight: 500;
 }
+
 
