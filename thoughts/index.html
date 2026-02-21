@@ -45,17 +45,18 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Sidebar only strong while actively scrolling
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove("scrolling");
+      }, 180);
+    });
   </script>
-  <script>
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      document.body.classList.add("scrolled");
-    } else {
-      document.body.classList.remove("scrolled");
-    }
-  };
-  window.addEventListener("scroll", onScroll);
-</script>
 </body>
 </html>
