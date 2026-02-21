@@ -263,7 +263,7 @@ ul{
 
 .sidebar{
   opacity:0.65;
-  transition: opacity 220ms ease;
+  transition: opacity 350ms ease;
 }
 
 .sidebar:hover{
@@ -278,7 +278,7 @@ body.scrolled .sidebar{
 /* --- Sidebar: only strong while actively scrolling --- */
 .sidebar{
   opacity:0.6;
-  transition: opacity 650ms ease;
+  transition: opacity 530ms ease;
 }
 
 body.scrolling .sidebar{
@@ -290,5 +290,6 @@ body.scrolling .sidebar{
   color: var(--fg);
   font-weight: 500;
 }
+
 
 
