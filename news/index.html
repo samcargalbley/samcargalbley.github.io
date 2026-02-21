@@ -60,19 +60,25 @@
 
   <script>
     // Footer year
-    document.getElementById("y").textContent = new Date().getFullYear();
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
 
-    // Sidebar only strong while actively scrolling
+    // Sidebar only strong while actively scrolling (tunable)
     let scrollTimer;
+    const SCROLL_ACTIVATE_PX = 140;
+    const FADE_AFTER_MS = 650;
+
     window.addEventListener("scroll", () => {
+      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
+
       document.body.classList.add("scrolling");
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
         document.body.classList.remove("scrolling");
-      }, 180);
+      }, FADE_AFTER_MS);
     });
 
-    // Scrollspy: highlight sidebar item for the section you're reading
+    // Scrollspy
     (function () {
       const sidebar = document.querySelector(".sidebar");
       if (!sidebar) return;
