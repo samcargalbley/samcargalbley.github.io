@@ -17,29 +17,27 @@
       <nav class="nav">
         <a aria-current="page" href="/">About</a>
         <a href="/thoughts/">Thoughts</a>
-        <a href="/links/">Links</a>
         <a href="/blogs/">Blogs</a>
-        <a href="/news/">News</a>
+        <a href="/personal/">Personal</a>
       </nav>
     </header>
 
     <main class="content">
       <h1>About</h1>
-        <p>
-        Work in progress.
-        <p>
-      
-        <p>
-        This began as an attempt to bring some order to the places, ideas, and people I find myself returning to. My interests don’t follow a single line — movies, soccer, music, photography and an underdeveloped curiosity about art all sit alongside my fascination with the energy transition and the forces that drive how business grow and compete.
-        </p>
 
-        <p>
+      <p class="muted">Work in progress.</p>
+
+      <p>
+        This began as an attempt to bring some order to the places, ideas, and people I find myself returning to. My interests don’t follow a single line — movies, soccer, music, photography, and an underdeveloped curiosity about art all sit alongside my fascination with the energy transition and the forces that drive how businesses grow and compete.
+      </p>
+
+      <p>
         So while you wait, perhaps impatiently, for thoughts on the former, I hope you’ll take some time to explore the latter.
-        </p>
+      </p>
 
-        <p>
+      <p>
         Eventually, when confidence catches up with intention, I’d like this to become a space for my own writing: a place for observations, unfinished ideas, and questions (and attempts at answers) about the energy transition, infrastructure, and the systems that shape everyday life often unnoticed. Think of it less as a finished argument and more as a record of things I’m trying to understand.
-        </p>
+      </p>
 
       <h2>Contact</h2>
       <div class="contact">
@@ -55,25 +53,23 @@
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Match Blogs scrolling behavior
+    let scrollTimer;
+    const SCROLL_ACTIVATE_PX = 1000;
+    const FADE_AFTER_MS = 650;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
+
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove("scrolling");
+      }, FADE_AFTER_MS);
+    });
   </script>
-  <script>
-  const onScroll = () => {
-    if (window.scrollY > 40) {
-      document.body.classList.add("scrolled");
-    } else {
-      document.body.classList.remove("scrolled");
-    }
-  };
-  window.addEventListener("scroll", onScroll);
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
