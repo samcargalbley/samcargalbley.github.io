@@ -291,5 +291,59 @@ body.scrolling .sidebar{
   font-weight: 500;
 }
 
+/* Personal subnav (second row) */
+.subnav{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.subnav a{
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.subnav a:hover{
+  color:var(--fg);
+}
+
+.subnav a[aria-current="page"]{
+  color:var(--fg);
+  font-weight:500;
+}
+
+/* Photo grid */
+.photo-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:28px;
+  margin-top:24px;
+}
+
+.photo-grid figure{
+  margin:0;
+}
+
+.photo-grid img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.photo-grid figcaption{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--muted);
+  text-align:center;
+}
+
+@media (max-width:740px){
+  .photo-grid{ grid-template-columns:1fr; }
+}
 
 
