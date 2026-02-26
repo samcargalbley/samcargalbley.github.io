@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pictures — Sam Cargal-Bley</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <div class="site-location">New York, New York</div>
+
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/blogs/">Blogs</a>
+        <a aria-current="page" href="/personal/">Personal</a>
+      </nav>
+
+      <nav class="subnav">
+        <a href="/personal/movies/">Movie Reviews</a>
+        <a aria-current="page" href="/personal/pictures/">Pictures</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h1>Pictures</h1>
+
+      <div class="photo-grid">
+        <figure>
+          <img src="/assets/photos/paris.jpg" alt="">
+          <figcaption>Paris</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/photos/tokyo.jpg" alt="">
+          <figcaption>Tokyo</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/photos/utah.jpg" alt="">
+          <figcaption>Utah</figcaption>
+        </figure>
+      </div>
+    </main>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+
+    let scrollTimer;
+    const SCROLL_ACTIVATE_PX = 1000;
+    const FADE_AFTER_MS = 650;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
+
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove("scrolling");
+      }, FADE_AFTER_MS);
+    });
+  </script>
+</body>
+</html>
