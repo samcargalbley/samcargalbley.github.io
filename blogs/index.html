@@ -16,9 +16,8 @@
       <nav class="nav">
         <a href="/">About</a>
         <a href="/thoughts/">Thoughts</a>
-        <a href="/links/">Links</a>
         <a aria-current="page" href="/blogs/">Blogs</a>
-        <a href="/news/">News</a>
+        <a href="/personal/">Personal</a>
       </nav>
     </header>
 
@@ -30,7 +29,7 @@
           <li><a href="#julian">Julian</a></li>
           <li><a href="#reactionwheel">Reaction Wheel</a></li>
           <li><a href="#paul">Paul Graham</a></li>
-          <li><a href="#other">other</a></li>
+          <li><a href="#other">Other</a></li>
         </ul>
       </aside>
 
@@ -69,8 +68,8 @@
 
         <h2 id="reactionwheel"><a href="https://reactionwheel.net/">Reaction Wheel</a></h2>
         <p class="muted">
-          Compact notes about design, systems, and clarity. Minimal, direct, and consistently useful
-          for resetting how you think about a problem.
+          Short, thoughtful posts about incentives, strategy, and decision-making — often with a simple
+          framework that sticks.
         </p>
         <ul class="posts">
           <li><a href="https://reactionwheel.net/2020/11/productive-uncertainty.html">productive uncertainty</a></li>
@@ -86,10 +85,10 @@
           <li><a href="https://paulgraham.com/words.html">putting ideas into words</a></li>
           <li><a href="https://paulgraham.com/getideas.html">how to get new ideas</a></li>
         </ul>
-        
-         <h2 id="other"><a >Other</a></h2>
+
+        <h2 id="other">Other</h2>
         <p class="muted">
-          Other posts I found insightful and are worth a read!
+          A few posts I found especially useful.
         </p>
         <ul class="posts">
           <li><a href="https://stratechery.com/2017/defining-aggregators/">defining aggregators</a></li>
@@ -103,14 +102,13 @@
   </div>
 
   <script>
-    // Footer year
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Sidebar only strong while actively scrolling (tunable)
+    // Match Blogs behavior across all pages
     let scrollTimer;
-    const SCROLL_ACTIVATE_PX = 1000; // scroll further before sidebar wakes up
-    const FADE_AFTER_MS = 650;      // stays awake longer after you stop scrolling
+    const SCROLL_ACTIVATE_PX = 1000;
+    const FADE_AFTER_MS = 650;
 
     window.addEventListener("scroll", () => {
       if (window.scrollY < SCROLL_ACTIVATE_PX) return;
@@ -122,7 +120,6 @@
       }, FADE_AFTER_MS);
     });
 
-    // Scrollspy: highlight sidebar item for the section you're reading
     (function () {
       const sidebar = document.querySelector(".sidebar");
       if (!sidebar) return;
