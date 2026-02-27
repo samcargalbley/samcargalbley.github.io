@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sam Cargal-Bley</title>
   <meta name="description" content="Sam Cargal-Bley" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -59,21 +59,6 @@
   <script>
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
-
-    // Match Blogs scrolling behavior
-    let scrollTimer;
-    const SCROLL_ACTIVATE_PX = 1000;
-    const FADE_AFTER_MS = 650;
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
-
-      document.body.classList.add("scrolling");
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        document.body.classList.remove("scrolling");
-      }, FADE_AFTER_MS);
-    });
   </script>
 </body>
 </html>
