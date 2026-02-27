@@ -1,6 +1,6 @@
 :root{
   --bg:#fbfbfb;          /* lighter, soft */
-  --fg:#111111;          /* true black-ish (for your name + active states) */
+  --fg:#111111;          /* true black-ish (for name + active) */
   --text:#2a2a2a;        /* softer body text */
   --muted:#7a7a7a;       /* nav/sidebar */
   --rule:#ececec;
@@ -150,9 +150,6 @@ body.scrolling .sidebar{
 .content{
   flex: 1 1 auto;
   min-width: 0;
-}
-
-.content{
   max-width: 640px;
 }
 
@@ -244,27 +241,40 @@ ul{
   text-align:center;
 }
 
-/* Movie reviews */
-.review{
-  margin-bottom:48px;
+/* MOVIE GRID — 3 across */
+.movie-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:36px 28px;
+  margin-top:24px;
 }
 
-.poster{
-  width:180px;
+.movie img{
+  width:100%;
   height:auto;
   display:block;
-  margin-bottom:14px;
-  border-radius:4px;
+  margin-bottom:10px;
 }
 
-.reviewer{
+.movie h2{
+  font-size:15px;
+  margin:8px 0 6px 0;
+}
+
+.movie p{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.movie .reviewer{
   color:var(--muted);
-  margin-top:10px;
+  font-size:13px;
 }
 
 /* Mobile */
 @media (max-width: 740px){
   .layout{ flex-direction:column; gap:18px; }
+
   .sidebar{
     flex: 1 1 auto;
     padding-top:0;
@@ -272,5 +282,7 @@ ul{
     top:auto;
     opacity: 1;          /* no fade on mobile */
   }
+
   .photo-grid{ grid-template-columns: 1fr; }
+  .movie-grid{ grid-template-columns: 1fr; }
 }
