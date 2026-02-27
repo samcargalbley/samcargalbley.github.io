@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blogs — Sam Cargal-Bley</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -33,7 +33,7 @@
           <li><a href="#julian">Julian</a></li>
           <li><a href="#reactionwheel">Reaction Wheel</a></li>
           <li><a href="#paul">Paul Graham</a></li>
-          <li><a href="#other">Other</a></li>
+          <li><a href="#stratechery">Stratechery</a></li>
         </ul>
       </aside>
 
@@ -56,8 +56,8 @@
           that expands into something practical.
         </p>
         <ul class="posts">
-          <li><a href="https://www.conradbastable.com/essays/forsaking-industrialism-the-most-expensive-thing-you-didnt-buy">forsaking industrialism: the most expensive thing you didn't buy</a></li>
-          <li><a href="https://www.conradbastable.com/essays/elite-underproduction-why-we-cant-solve-hard-problems-anymore">elite underproduction: why we can't solve hard problems anymore</a></li>
+          <li><a href="https://www.conradbastable.com/essays/forsaking-industrialism-the-most-expensive-thing-you-didnt-buy">forsaking industrialism</a></li>
+          <li><a href="https://www.conradbastable.com/essays/elite-underproduction-why-we-cant-solve-hard-problems-anymore">elite underproduction</a></li>
         </ul>
 
         <h2 id="julian"><a href="https://julian.digital/">Julian</a></h2>
@@ -72,8 +72,8 @@
 
         <h2 id="reactionwheel"><a href="https://reactionwheel.net/">Reaction Wheel</a></h2>
         <p class="muted">
-          Short, thoughtful posts about incentives, strategy, and decision-making — often with a simple
-          framework that sticks.
+          Clear writing about moats, incentives, and decision-making — practical frameworks with a light
+          touch and very little noise.
         </p>
         <ul class="posts">
           <li><a href="https://reactionwheel.net/2020/11/productive-uncertainty.html">productive uncertainty</a></li>
@@ -82,22 +82,22 @@
 
         <h2 id="paul"><a href="https://paulgraham.com/articles.html">Paul Graham</a></h2>
         <p class="muted">
-          Essays on startups, technology, and thinking clearly — simple observations developed into
-          broader ideas about work, ambition, and how people build things.
+          Essays on startups, technology, and thinking clearly — simple observations developed into broader
+          ideas about work, ambition, and building.
         </p>
         <ul class="posts">
           <li><a href="https://paulgraham.com/words.html">putting ideas into words</a></li>
           <li><a href="https://paulgraham.com/getideas.html">how to get new ideas</a></li>
         </ul>
 
-        <h2 id="other">Other</h2>
+        <h2 id="stratechery"><a href="https://stratechery.com/">Stratechery</a></h2>
         <p class="muted">
-          A few posts I found especially useful.
+          Strategy and business analysis that takes tech seriously without hype — crisp mental models,
+          strong incentives framing, and consistently useful vocabulary.
         </p>
         <ul class="posts">
           <li><a href="https://stratechery.com/2017/defining-aggregators/">defining aggregators</a></li>
           <li><a href="https://stratechery.com/2015/aggregation-theory/">aggregation theory</a></li>
-          <li><a href="https://stratechery.com/2015/netflix-and-the-conservation-of-attractive-profits/">conservation of attractive profits</a></li>
         </ul>
       </main>
     </div>
@@ -109,7 +109,7 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Match Blogs behavior across all pages
+    // Sidebar only strong while actively scrolling
     let scrollTimer;
     const SCROLL_ACTIVATE_PX = 1000;
     const FADE_AFTER_MS = 650;
@@ -123,47 +123,6 @@
         document.body.classList.remove("scrolling");
       }, FADE_AFTER_MS);
     });
-
-    (function () {
-      const sidebar = document.querySelector(".sidebar");
-      if (!sidebar) return;
-
-      const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
-      if (!links.length) return;
-
-      const linkById = new Map();
-      links.forEach(a => {
-        const id = a.getAttribute("href").slice(1);
-        if (id) linkById.set(id, a);
-      });
-
-      const targets = Array.from(linkById.keys())
-        .map(id => document.getElementById(id))
-        .filter(Boolean);
-
-      if (!targets.length) return;
-
-      const setActive = (id) => {
-        links.forEach(a => a.classList.remove("is-active"));
-        const a = linkById.get(id);
-        if (a) a.classList.add("is-active");
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-        if (visible.length) setActive(visible[0].target.id);
-      }, {
-        root: null,
-        threshold: [0.1, 0.25, 0.5],
-        rootMargin: "-15% 0px -70% 0px"
-      });
-
-      targets.forEach(t => observer.observe(t));
-      setActive(targets[0].id);
-    })();
   </script>
 </body>
 </html>
