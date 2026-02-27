@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thoughts — Sam Cargal-Bley</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -29,18 +29,22 @@
       <aside class="sidebar">
         <ul>
           <li><a aria-current="page" href="/thoughts/">2026-02-19</a></li>
-          <li><a href="#">2026-02-18</a></li>
-          <li><a href="#">2026-02-17</a></li>
+          <li><a href="#t2026-02-18">2026-02-18</a></li>
+          <li><a href="#t2026-02-17">2026-02-17</a></li>
         </ul>
       </aside>
 
       <main class="content">
         <h1>Thoughts</h1>
-        <ul>
-          <li><span class="muted">2026-02-19</span> — Set up this site.</li>
-          <li><span class="muted">2026-02-18</span> — Researched how to create this site.</li>
-          <li><span class="muted">2026-02-17</span> — Thought of this site.</li>
-        </ul>
+
+        <h2 id="t2026-02-19">2026-02-19</h2>
+        <p class="muted">Set up this site.</p>
+
+        <h2 id="t2026-02-18">2026-02-18</h2>
+        <p class="muted">Researched how to create this site.</p>
+
+        <h2 id="t2026-02-17">2026-02-17</h2>
+        <p class="muted">Thought of this site.</p>
       </main>
     </div>
 
@@ -51,7 +55,7 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Match Blogs scrolling behavior
+    // Sidebar only strong while actively scrolling (same behavior as Blogs)
     let scrollTimer;
     const SCROLL_ACTIVATE_PX = 1000;
     const FADE_AFTER_MS = 650;
