@@ -1,3 +1,7 @@
+/* =======================
+   GLOBAL
+   ======================= */
+
 :root{
   --bg:#fbfbfb;
   --fg:#111111;
@@ -20,7 +24,9 @@ body{
   letter-spacing:.01em;
 }
 
-/* ================= WRAP ================= */
+/* =======================
+   WRAP
+   ======================= */
 
 .wrap{
   max-width:var(--max);
@@ -28,7 +34,9 @@ body{
   padding:72px 20px 56px;
 }
 
-/* ================= HEADER ================= */
+/* =======================
+   HEADER
+   ======================= */
 
 .header{
   text-align:center;
@@ -73,8 +81,7 @@ body{
   font-weight:500;
 }
 
-/* PERSONAL SUBNAV */
-
+/* PERSONAL SUBNAV (2nd row) */
 .subnav{
   margin-top:12px;
   display:flex;
@@ -97,7 +104,9 @@ body{
   font-weight:500;
 }
 
-/* ================= LAYOUT ================= */
+/* =======================
+   LAYOUT
+   ======================= */
 
 .layout{
   display:flex;
@@ -113,9 +122,7 @@ body{
   transition:opacity .5s ease;
 }
 
-body.scrolling .sidebar{
-  opacity:1;
-}
+body.scrolling .sidebar{ opacity:1; }
 
 .sidebar ul{
   list-style:none;
@@ -144,7 +151,19 @@ body.scrolling .sidebar{
   max-width:640px;
 }
 
-/* ================= TYPE ================= */
+/* Allow pages to opt into wider layouts */
+.wide-page{
+  max-width:100%;
+}
+
+/* Movies page uses wide layout */
+.movies-page{
+  max-width:100%;
+}
+
+/* =======================
+   TYPE
+   ======================= */
 
 h1{
   font-size:26px;
@@ -174,16 +193,21 @@ a:hover{ color:var(--fg); }
 
 .muted{ color:var(--muted); }
 
-/* ================= POSTS ================= */
+/* =======================
+   BLOG POST LIST INDENT
+   ======================= */
 
 .posts{
   list-style:none;
   padding-left:0;
+  margin:0 0 18px 0;
 }
 
 .posts li{ margin-left:18px; }
 
-/* ================= FOOTER ================= */
+/* =======================
+   FOOTER
+   ======================= */
 
 .footer{
   border-top:1px solid var(--rule);
@@ -195,7 +219,9 @@ a:hover{ color:var(--fg); }
   justify-content:center;
 }
 
-/* ================= PHOTO GRID ================= */
+/* =======================
+   PHOTO GRID (3 across)
+   ======================= */
 
 .photo-grid{
   display:grid;
@@ -203,6 +229,8 @@ a:hover{ color:var(--fg); }
   gap:28px;
   margin-top:24px;
 }
+
+.photo-grid figure{ margin:0; }
 
 .photo-grid img{
   width:100%;
@@ -216,17 +244,17 @@ a:hover{ color:var(--fg); }
   font-size:14px;
 }
 
-/* ================================================= */
-/* MOVIES — CLEAN EDITORIAL GRID                     */
-/* ================================================= */
+/* =======================
+   MOVIES — CLEAN CENTERED GRID
+   ======================= */
 
 .movie-grid{
-  --poster:200px;     /* slightly larger posters */
-  --gap-x:64px;       /* MORE horizontal air */
-  --gap-y:52px;       /* balanced vertical spacing */
+  --poster:180px;
+  --gap-x:80px;
+  --gap-y:54px;
 
   display:grid;
-  grid-template-columns:repeat(3,var(--poster));
+  grid-template-columns:repeat(3, var(--poster));
   justify-content:center;
   column-gap:var(--gap-x);
   row-gap:var(--gap-y);
@@ -238,11 +266,11 @@ a:hover{ color:var(--fg); }
   text-align:center;
 }
 
-/* poster */
 .movie img{
   width:var(--poster);
-  height:300px;
+  height:270px;
   object-fit:cover;
+  display:block;
   margin:0 auto 12px auto;
   border-radius:4px;
 
@@ -254,18 +282,21 @@ a:hover{ color:var(--fg); }
   opacity:.94;
 }
 
-/* TITLE — tighter */
+/* catalog-style title */
 .movie h2{
-  font-size:15px;
-  margin:6px 0 4px 0;
-  letter-spacing:.02em;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin:8px 0 6px 0;
+  font-weight:500;
 }
 
-/* REVIEW — shorter visual weight */
+/* review */
 .movie p{
   font-size:13.5px;
-  line-height:1.5;      /* reduces vertical stretch */
+  line-height:1.5;
   margin-bottom:6px;
+  color:var(--muted);
 }
 
 .movie .reviewer{
@@ -273,7 +304,9 @@ a:hover{ color:var(--fg); }
   color:var(--muted);
 }
 
-/* ================= MOBILE ================= */
+/* =======================
+   MOBILE
+   ======================= */
 
 @media (max-width:740px){
 
@@ -295,6 +328,7 @@ a:hover{ color:var(--fg); }
   .movie-grid{
     grid-template-columns:1fr;
     justify-content:stretch;
+    row-gap:40px;
   }
 
   .movie{
@@ -308,6 +342,3 @@ a:hover{ color:var(--fg); }
     margin:0 0 14px 0;
   }
 }
-
-
-
