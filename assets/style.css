@@ -1,12 +1,10 @@
 :root{
-  --bg:#fbfbfb;
-  --fg:#111111;
-  --text:#2a2a2a;
-  --muted:#7a7a7a;
+  --bg:#fbfbfb;          /* lighter, soft */
+  --fg:#111111;          /* true black-ish (for your name + active states) */
+  --text:#2a2a2a;        /* softer body text */
+  --muted:#7a7a7a;       /* nav/sidebar */
   --rule:#ececec;
-
   --max: 860px;
-  --measure: 640px;
 }
 
 *{ box-sizing:border-box; }
@@ -21,48 +19,44 @@ body{
   font-weight:400;
 }
 
+/* overall container */
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 80px 20px 56px;
+  padding: 72px 20px 56px;
 }
 
-/* Header (Conrad-ish: caps + tracking + quiet) */
+/* Header (centered) */
 .header{
   text-align:center;
-  padding-bottom:22px;
+  padding-bottom:18px;
   border-bottom:1px solid var(--rule);
-  margin: 0 auto 34px;
+  margin-bottom:28px;
 
-  max-width: var(--measure);
+  max-width: 640px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .site-title{
   margin:0 0 10px 0;
   font-weight:600;
-  font-size:42px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--fg);
+  font-size:44px;
+  letter-spacing:-0.01em;
+  color: var(--fg);
 }
 
 .site-location{
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
   color: var(--muted);
-  font-size: 14px;
-  letter-spacing:0.10em;
-  text-transform:uppercase;
+  font-size:16px;
 }
 
-/* Nav */
 .nav{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
   gap:22px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  font-size:12px;
 }
 
 .nav a{
@@ -79,20 +73,54 @@ body{
   font-weight:500;
 }
 
-/* Layout */
+/* Personal subnav (second row) */
+.subnav{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.subnav a{
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.subnav a:hover{
+  color:var(--fg);
+}
+
+.subnav a[aria-current="page"]{
+  color:var(--fg);
+  font-weight:500;
+}
+
+/* Layout (sidebar + content) */
 .layout{
   display:flex;
-  gap:44px;
+  gap:40px;
   align-items:flex-start;
 }
 
 .sidebar{
   flex: 0 0 180px;
-  padding-top:4px;
+  padding-top: 6px;
 
+  /* sticky sidebar */
   position: sticky;
   top: 110px;
   align-self: flex-start;
+
+  /* fade behavior (controlled by body.scrolling) */
+  opacity: 0.55;
+  transition: opacity 520ms ease;
+}
+
+body.scrolling .sidebar{
+  opacity: 1;
 }
 
 .sidebar ul{
@@ -113,33 +141,37 @@ body{
   color:var(--fg);
 }
 
-.sidebar a[aria-current="page"]{
+.sidebar a[aria-current="page"],
+.sidebar a.is-active{
   color:var(--fg);
   font-weight:500;
 }
 
-/* Content */
 .content{
   flex: 1 1 auto;
   min-width: 0;
-  max-width: var(--measure);
 }
 
+.content{
+  max-width: 640px;
+}
+
+/* Typography */
 h1{
-  font-size:24px;
+  font-size:26px;
   margin:0 0 14px 0;
   font-weight:500;
-  color: var(--fg);
 }
 
 h2{
-  font-size:15px;
-  margin:26px 0 10px 0;
+  font-size:16px;
+  margin:22px 0 10px 0;
   font-weight:500;
-  color: var(--fg);
 }
 
-p{ margin: 0 0 14px 0; }
+p{
+  margin: 0 0 18px 0;
+}
 
 a{
   color:inherit;
@@ -147,17 +179,15 @@ a{
 }
 
 a:hover{
-  color: var(--fg);
+  color:var(--fg);
 }
 
-/* Only contact links are underlined */
 .contact a{
   color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* Lists */
 ul{
   padding-left: 18px;
   margin: 8px 0 16px 0;
@@ -165,159 +195,31 @@ ul{
 
 .muted{ color:var(--muted); }
 
-/* Blog post sub-links */
+/* Indented post lists used on Blogs */
 .posts{
-  list-style: none;
-  padding-left: 0;
-  margin: 8px 0 18px 0;
+  list-style:none;
+  padding-left:0;
+  margin-left:0;
 }
 
 .posts li{
-  margin-left: 18px;
-  margin-top: 6px;
+  margin-left:18px;   /* indent */
 }
-
-.posts a{
-  color: var(--muted);
-}
-
-.posts a:hover{
-  color: var(--fg);
-}
-
-/* Smooth section jumps */
-html { scroll-behavior: smooth; }
-h2 { scroll-margin-top: 24px; }
 
 /* Footer */
 .footer{
   border-top:1px solid var(--rule);
-  margin-top:46px;
+  margin-top:40px;
   padding-top:18px;
   color:var(--muted);
-  font-size: 13px;
+  font-size:14px;
 
   display:flex;
   justify-content:center;
   width:100%;
 }
 
-/* Mobile */
-@media (max-width: 740px){
-  .wrap{ padding: 56px 20px 48px; }
-  .layout{ flex-direction:column; gap:18px; }
-  .sidebar{ flex: 1 1 auto; padding-top:0; }
-}
-
-/* --- TYPESSETTING REFINEMENT --- */
-
-/* Slightly larger reading size (feels editorial immediately) */
-.content{
-  font-size:17px;
-  line-height:1.72;
-  text-rendering: optimizeLegibility;
-}
-
-/* Paragraph rhythm */
-p{
-  margin:0 0 18px 0;
-}
-
-/* Section spacing — creates hierarchy without lines */
-h1{
-  margin-bottom:18px;
-}
-
-h2{
-  margin-top:34px;
-  margin-bottom:12px;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  font-size:13px;
-}
-
-/* Lists read like prose instead of UI */
-ul{
-  margin:12px 0 20px 0;
-}
-
-/* Sidebar alignment — matches first text baseline */
-.sidebar{
-  padding-top:4px;
-}
-
-/* Subtle visual calm: reduce contrast slightly */
-.nav a{
-  opacity:0.85;
-}
-.nav a:hover{
-  opacity:1;
-}
-
-/* Blog post links feel secondary */
-.posts a{
-  font-size:15px;
-}
-
-/* --- Sidebar presence refinement --- */
-
-.sidebar{
-  opacity:0.65;
-  transition: opacity 350ms ease;
-}
-
-.sidebar:hover{
-  opacity:1;
-}
-
-/* When page scrolls, sidebar feels more present */
-body.scrolled .sidebar{
-  opacity:0.9;
-}
-
-/* --- Sidebar: only strong while actively scrolling --- */
-.sidebar{
-  opacity:0.6;
-  transition: opacity 530ms ease;
-}
-
-body.scrolling .sidebar{
-  opacity:1;
-}
-
-/* --- Scrollspy active item --- */
-.sidebar a.is-active{
-  color: var(--fg);
-  font-weight: 500;
-}
-
-/* Personal subnav (second row) */
-.subnav{
-  margin-top:12px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  font-size:11px;
-}
-
-.subnav a{
-  color:var(--muted);
-  text-decoration:none;
-}
-
-.subnav a:hover{
-  color:var(--fg);
-}
-
-.subnav a[aria-current="page"]{
-  color:var(--fg);
-  font-weight:500;
-}
-
-/* Photo grid */
+/* Photo grid (3 across) */
 .photo-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -342,8 +244,33 @@ body.scrolling .sidebar{
   text-align:center;
 }
 
-@media (max-width:740px){
-  .photo-grid{ grid-template-columns:1fr; }
+/* Movie reviews */
+.review{
+  margin-bottom:48px;
 }
 
+.poster{
+  width:180px;
+  height:auto;
+  display:block;
+  margin-bottom:14px;
+  border-radius:4px;
+}
 
+.reviewer{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* Mobile */
+@media (max-width: 740px){
+  .layout{ flex-direction:column; gap:18px; }
+  .sidebar{
+    flex: 1 1 auto;
+    padding-top:0;
+    position: relative;  /* stop sticky on small screens */
+    top:auto;
+    opacity: 1;          /* no fade on mobile */
+  }
+  .photo-grid{ grid-template-columns: 1fr; }
+}
