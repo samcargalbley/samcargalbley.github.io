@@ -216,24 +216,20 @@ a:hover{ color:var(--fg); }
 }
 
 /* ================================================= */
-/* MOVIES PAGE — TRUE CENTERED GRID                  */
+/* MOVIES — CLEAN EDITORIAL GRID                     */
 /* ================================================= */
 
-.movies-page{
-  max-width:100%;
-}
-
-/* perfectly centered 3-column layout */
 .movie-grid{
-  --poster:180px;
-  --gap:36px;
+  --poster:200px;     /* slightly larger posters */
+  --gap-x:64px;       /* MORE horizontal air */
+  --gap-y:52px;       /* balanced vertical spacing */
 
   display:grid;
   grid-template-columns:repeat(3,var(--poster));
   justify-content:center;
-  column-gap:var(--gap);
-  row-gap:44px;
-  margin-top:28px;
+  column-gap:var(--gap-x);
+  row-gap:var(--gap-y);
+  margin-top:36px;
 }
 
 .movie{
@@ -244,34 +240,36 @@ a:hover{ color:var(--fg); }
 /* poster */
 .movie img{
   width:var(--poster);
-  height:270px;
+  height:300px;
   object-fit:cover;
-  display:block;
-  margin:0 auto 14px auto;
+  margin:0 auto 12px auto;
   border-radius:4px;
 
   transition:transform .25s ease, opacity .25s ease;
 }
 
 .movie:hover img{
-  transform:translateY(-4px);
-  opacity:.92;
+  transform:translateY(-3px);
+  opacity:.94;
 }
 
+/* TITLE — tighter */
 .movie h2{
   font-size:15px;
-  margin:8px 0 6px 0;
+  margin:6px 0 4px 0;
+  letter-spacing:.02em;
 }
 
+/* REVIEW — shorter visual weight */
 .movie p{
-  font-size:14px;
-  line-height:1.6;
-  margin-bottom:8px;
+  font-size:13.5px;
+  line-height:1.5;      /* reduces vertical stretch */
+  margin-bottom:6px;
 }
 
 .movie .reviewer{
+  font-size:12.5px;
   color:var(--muted);
-  font-size:13px;
 }
 
 /* ================= MOBILE ================= */
@@ -309,3 +307,4 @@ a:hover{ color:var(--fg); }
     margin:0 0 14px 0;
   }
 }
+
