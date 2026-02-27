@@ -4,7 +4,7 @@
   --text:#2a2a2a;
   --muted:#7a7a7a;
   --rule:#ececec;
-  --max: 860px;
+  --max:860px;
 }
 
 *{ box-sizing:border-box; }
@@ -14,8 +14,9 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font:16px/1.65 Aptos, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  letter-spacing:0.01em;
+  font:16px/1.65 Aptos, system-ui, -apple-system, "Segoe UI",
+       Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing:.01em;
 }
 
 /* ================= WRAP ================= */
@@ -33,6 +34,7 @@ body{
   padding-bottom:18px;
   border-bottom:1px solid var(--rule);
   margin-bottom:28px;
+
   max-width:640px;
   margin-left:auto;
   margin-right:auto;
@@ -42,7 +44,7 @@ body{
   margin:0 0 10px 0;
   font-weight:600;
   font-size:44px;
-  letter-spacing:-0.01em;
+  letter-spacing:-.01em;
   color:var(--fg);
 }
 
@@ -214,9 +216,14 @@ a:hover{ color:var(--fg); }
 }
 
 /* ================================================= */
-/* MOVIE GRID — PERFECTLY EVEN 3 COLUMN CENTERED     */
+/* MOVIES PAGE — TRUE CENTERED GRID                  */
 /* ================================================= */
 
+.movies-page{
+  max-width:100%;
+}
+
+/* perfectly centered 3-column layout */
 .movie-grid{
   --poster:180px;
   --gap:36px;
@@ -234,6 +241,7 @@ a:hover{ color:var(--fg); }
   text-align:center;
 }
 
+/* poster */
 .movie img{
   width:var(--poster);
   height:270px;
@@ -241,6 +249,13 @@ a:hover{ color:var(--fg); }
   display:block;
   margin:0 auto 14px auto;
   border-radius:4px;
+
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.movie:hover img{
+  transform:translateY(-4px);
+  opacity:.92;
 }
 
 .movie h2{
