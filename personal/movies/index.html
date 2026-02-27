@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Movie Reviews — Sam Cargal-Bley</title>
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
 <body>
@@ -29,14 +29,65 @@
     <main class="content">
       <h1>Movie Reviews</h1>
 
-      <ul>
-        <li><span class="muted">2026-02-XX</span> — Film Title (placeholder)</li>
-        <li><span class="muted">2026-02-XX</span> — Film Title (placeholder)</li>
-      </ul>
+      <article class="review">
+        <img
+          src="../../assets/images/lost-in-translation.jpg"
+          alt="Lost in Translation poster"
+          class="poster"
+          loading="lazy"
+        />
+        <h2>Lost in Translation</h2>
+        <p>
+          A film about distance and recognition — less about romance than about two people briefly
+          understanding each other at the exact moment they needed it.
+        </p>
+        <p class="reviewer">— Sam Cargal-Bley</p>
+      </article>
 
-      <p class="muted">
-        (We can turn each review into its own page later, Conrad-style.)
-      </p>
+      <article class="review">
+        <img
+          src="../../assets/images/aftersun.jpg"
+          alt="Aftersun poster"
+          class="poster"
+          loading="lazy"
+        />
+        <h2>Aftersun</h2>
+        <p>
+          Memory reconstructed through fragments. The emotional weight arrives slowly and only fully
+          lands after the film ends.
+        </p>
+        <p class="reviewer">— Sam Cargal-Bley</p>
+      </article>
+
+      <article class="review">
+        <img
+          src="../../assets/images/her.jpg"
+          alt="Her poster"
+          class="poster"
+          loading="lazy"
+        />
+        <h2>Her</h2>
+        <p>
+          Warm and unsettling in equal measure. A story about intimacy and loneliness that treats
+          technology as a mirror, not a gimmick.
+        </p>
+        <p class="reviewer">— Sam Cargal-Bley</p>
+      </article>
+
+      <article class="review">
+        <img
+          src="../../assets/images/in-the-mood-for-love.jpg"
+          alt="In the Mood for Love poster"
+          class="poster"
+          loading="lazy"
+        />
+        <h2>In the Mood for Love</h2>
+        <p>
+          Controlled, aching, and precise — two people circling what they want to say. Every frame
+          feels like restraint made visible.
+        </p>
+        <p class="reviewer">— Sam Cargal-Bley</p>
+      </article>
     </main>
 
     <footer class="footer">© <span id="y"></span></footer>
@@ -46,6 +97,7 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
+    // Match Blogs scrolling behavior
     let scrollTimer;
     const SCROLL_ACTIVATE_PX = 1000;
     const FADE_AFTER_MS = 650;
