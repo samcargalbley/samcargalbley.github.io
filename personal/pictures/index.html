@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pictures — Sam Cargal-Bley</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -30,21 +30,21 @@
       </nav>
     </header>
 
-    <main class="content">
+    <main class="content pictures-page">
       <h1>Pictures</h1>
 
       <div class="photo-grid">
         <figure>
-          
-          <figcaption>Paris</figcaption>
+          <img src="/assets/photos/placeholder-1.jpg" alt="Photo 1" loading="lazy">
+          <figcaption>Hoboken</figcaption>
         </figure>
         <figure>
-          
-          <figcaption>Tokyo</figcaption>
+          <img src="/assets/photos/placeholder-2.jpg" alt="Photo 2" loading="lazy">
+          <figcaption>New York</figcaption>
         </figure>
         <figure>
-          
-          <figcaption>Utah</figcaption>
+          <img src="/assets/photos/placeholder-3.jpg" alt="Photo 3" loading="lazy">
+          <figcaption>Somewhere</figcaption>
         </figure>
       </div>
     </main>
@@ -55,20 +55,6 @@
   <script>
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
-
-    let scrollTimer;
-    const SCROLL_ACTIVATE_PX = 1000;
-    const FADE_AFTER_MS = 650;
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
-
-      document.body.classList.add("scrolling");
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        document.body.classList.remove("scrolling");
-      }, FADE_AFTER_MS);
-    });
   </script>
 </body>
 </html>
