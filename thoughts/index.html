@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Handgloves&family=Karla:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -28,23 +28,26 @@
     <div class="layout">
       <aside class="sidebar">
         <ul>
-          <li><a aria-current="page" href="/thoughts/">2026-02-19</a></li>
-          <li><a href="#t2026-02-18">2026-02-18</a></li>
-          <li><a href="#t2026-02-17">2026-02-17</a></li>
+          <li><a href="#t-2026-02-19">2026-02-19</a></li>
+          <li><a href="#t-2026-02-18">2026-02-18</a></li>
+          <li><a href="#t-2026-02-17">2026-02-17</a></li>
         </ul>
       </aside>
 
       <main class="content">
         <h1>Thoughts</h1>
 
-        <h2 id="t2026-02-19">2026-02-19</h2>
-        <p class="muted">Set up this site.</p>
-
-        <h2 id="t2026-02-18">2026-02-18</h2>
-        <p class="muted">Researched how to create this site.</p>
-
-        <h2 id="t2026-02-17">2026-02-17</h2>
-        <p class="muted">Thought of this site.</p>
+        <ul class="thoughts-list">
+          <li id="t-2026-02-19">
+            <span class="thoughts-date">2026-02-19</span> — Set up this site.
+          </li>
+          <li id="t-2026-02-18">
+            <span class="thoughts-date">2026-02-18</span> — Researched how to create this site.
+          </li>
+          <li id="t-2026-02-17">
+            <span class="thoughts-date">2026-02-17</span> — Thought of this site.
+          </li>
+        </ul>
       </main>
     </div>
 
@@ -55,20 +58,52 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Sidebar only strong while actively scrolling (same behavior as Blogs)
     let scrollTimer;
-    const SCROLL_ACTIVATE_PX = 1000;
-    const FADE_AFTER_MS = 650;
+    const SCROLL_ACTIVATE_PX = 800;
+    const FADE_AFTER_MS = 800;
 
     window.addEventListener("scroll", () => {
       if (window.scrollY < SCROLL_ACTIVATE_PX) return;
-
       document.body.classList.add("scrolling");
       clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        document.body.classList.remove("scrolling");
-      }, FADE_AFTER_MS);
+      scrollTimer = setTimeout(() => document.body.classList.remove("scrolling"), FADE_AFTER_MS);
     });
+
+    (function(){
+      const sidebar = document.querySelector(".sidebar");
+      if (!sidebar) return;
+
+      const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+      if (!links.length) return;
+
+      const linkById = new Map();
+      links.forEach(a => {
+        const id = a.getAttribute("href").slice(1);
+        if (id) linkById.set(id, a);
+      });
+
+      const targets = Array.from(linkById.keys())
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      if (!targets.length) return;
+
+      const setActive = (id) => {
+        links.forEach(a => a.classList.remove("is-active"));
+        const a = linkById.get(id);
+        if (a) a.classList.add("is-active");
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      }, { threshold:[0.15, 0.35, 0.6], rootMargin:"-20% 0px -70% 0px" });
+
+      targets.forEach(t => observer.observe(t));
+      setActive(targets[0].id);
+    })();
   </script>
 </body>
 </html>
