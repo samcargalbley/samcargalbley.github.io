@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Handgloves&family=Karla:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
@@ -41,60 +41,42 @@
         <h1>Blogs</h1>
 
         <h2 id="notboring"><a href="https://www.notboring.co/">Not Boring</a></h2>
-        <p class="muted">
-          Long-form tech and business analysis with strong narratives and clear bets. Good for building
-          intuition across industries, even when you don’t agree with the conclusion.
-        </p>
+        <p class="muted">Long-form tech and business analysis with strong narratives and clear bets.</p>
         <ul class="posts">
           <li><a href="https://www.notboring.co/p/the-electric-slide">the electric slide</a></li>
           <li><a href="https://www.notboring.co/p/power-in-the-age-of-intelligence">power in the age of intelligence</a></li>
         </ul>
 
         <h2 id="conrad"><a href="https://www.conradbastable.com/">Conrad Bastable</a></h2>
-        <p class="muted">
-          Essays on attention, taste, and modern work — usually anchored in a small observation
-          that expands into something practical.
-        </p>
+        <p class="muted">Essays on attention, taste, and modern work — anchored in small observations.</p>
         <ul class="posts">
           <li><a href="https://www.conradbastable.com/essays/forsaking-industrialism-the-most-expensive-thing-you-didnt-buy">forsaking industrialism</a></li>
           <li><a href="https://www.conradbastable.com/essays/elite-underproduction-why-we-cant-solve-hard-problems-anymore">elite underproduction</a></li>
         </ul>
 
         <h2 id="julian"><a href="https://julian.digital/">Julian</a></h2>
-        <p class="muted">
-          Compact notes about design, systems, and clarity. Minimal, direct, and consistently useful
-          for resetting how you think about a problem.
-        </p>
+        <p class="muted">Compact notes about design, systems, and clarity — minimal without being sterile.</p>
         <ul class="posts">
           <li><a href="https://julian.digital/2021/12/20/the-power-of-defaults/">the power of defaults</a></li>
           <li><a href="https://julian.digital/2020/03/28/signaling-as-a-service/">signaling as a service</a></li>
         </ul>
 
         <h2 id="reactionwheel"><a href="https://reactionwheel.net/">Reaction Wheel</a></h2>
-        <p class="muted">
-          Clear writing about moats, incentives, and decision-making — practical frameworks with a light
-          touch and very little noise.
-        </p>
+        <p class="muted">Clear writing about moats, incentives, and decision-making — low noise, high signal.</p>
         <ul class="posts">
           <li><a href="https://reactionwheel.net/2020/11/productive-uncertainty.html">productive uncertainty</a></li>
           <li><a href="https://reactionwheel.net/2019/09/a-taxonomy-of-moats.html">a taxonomy of moats</a></li>
         </ul>
 
         <h2 id="paul"><a href="https://paulgraham.com/articles.html">Paul Graham</a></h2>
-        <p class="muted">
-          Essays on startups, technology, and thinking clearly — simple observations developed into broader
-          ideas about work, ambition, and building.
-        </p>
+        <p class="muted">Essays on startups and thinking clearly — simple observations built into larger ideas.</p>
         <ul class="posts">
           <li><a href="https://paulgraham.com/words.html">putting ideas into words</a></li>
           <li><a href="https://paulgraham.com/getideas.html">how to get new ideas</a></li>
         </ul>
 
         <h2 id="stratechery"><a href="https://stratechery.com/">Stratechery</a></h2>
-        <p class="muted">
-          Strategy and business analysis that takes tech seriously without hype — crisp mental models,
-          strong incentives framing, and consistently useful vocabulary.
-        </p>
+        <p class="muted">Tech strategy with crisp models and incentives framing — consistently useful vocabulary.</p>
         <ul class="posts">
           <li><a href="https://stratechery.com/2017/defining-aggregators/">defining aggregators</a></li>
           <li><a href="https://stratechery.com/2015/aggregation-theory/">aggregation theory</a></li>
@@ -109,20 +91,52 @@
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Sidebar only strong while actively scrolling
     let scrollTimer;
-    const SCROLL_ACTIVATE_PX = 1000;
-    const FADE_AFTER_MS = 650;
+    const SCROLL_ACTIVATE_PX = 800;
+    const FADE_AFTER_MS = 800;
 
     window.addEventListener("scroll", () => {
       if (window.scrollY < SCROLL_ACTIVATE_PX) return;
-
       document.body.classList.add("scrolling");
       clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        document.body.classList.remove("scrolling");
-      }, FADE_AFTER_MS);
+      scrollTimer = setTimeout(() => document.body.classList.remove("scrolling"), FADE_AFTER_MS);
     });
+
+    (function(){
+      const sidebar = document.querySelector(".sidebar");
+      if (!sidebar) return;
+
+      const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+      if (!links.length) return;
+
+      const linkById = new Map();
+      links.forEach(a => {
+        const id = a.getAttribute("href").slice(1);
+        if (id) linkById.set(id, a);
+      });
+
+      const targets = Array.from(linkById.keys())
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      if (!targets.length) return;
+
+      const setActive = (id) => {
+        links.forEach(a => a.classList.remove("is-active"));
+        const a = linkById.get(id);
+        if (a) a.classList.add("is-active");
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      }, { threshold:[0.12, 0.3, 0.55], rootMargin:"-18% 0px -70% 0px" });
+
+      targets.forEach(t => observer.observe(t));
+      setActive(targets[0].id);
+    })();
   </script>
 </body>
 </html>
