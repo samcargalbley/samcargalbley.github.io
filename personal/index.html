@@ -1,51 +1,67 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Personal — Sam Cargal-Bley</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Handgloves&family=Karla:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Personal — Sam Cargal-Bley</title>
+<meta name="description" content="Personal — Sam Cargal-Bley" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="header">
-      <h1 class="site-title">Sam Cargal-Bley</h1>
-      <div class="site-location">New York, New York</div>
 
-      <nav class="nav">
-        <a href="/">About</a>
-        <a href="/thoughts/">Thoughts</a>
-        <a href="/blogs/">Blogs</a>
-        <a aria-current="page" href="/personal/">Personal</a>
-      </nav>
+<div class="wrap">
 
-      <nav class="subnav">
-        <a href="/personal/movies/">Movie Reviews</a>
-        <a href="/personal/pictures/">Pictures</a>
-      </nav>
-    </header>
+<header class="header">
 
-    <main class="content">
-      <h1>Personal</h1>
-      <p class="muted">A small set of personal pages.</p>
+<h1 class="site-title">Sam Cargal-Bley</h1>
+<div class="site-location">New York, New York</div>
 
-      <ul>
-        <li><a href="/personal/movies/">Movie Reviews</a></li>
-        <li><a href="/personal/pictures/">Pictures</a></li>
-      </ul>
-    </main>
+<nav class="nav">
+<a href="/">About</a>
+<a href="/thoughts/">Thoughts</a>
+<a href="/blogs/">Blogs</a>
+<a aria-current="page" href="/personal/">Personal</a>
+</nav>
 
-    <footer class="footer">© <span id="y"></span></footer>
-  </div>
+<nav class="subnav">
+<a href="/personal/movies/">Movie Reviews</a>
+<a href="/personal/pictures/">Pictures</a>
+</nav>
 
-  <script>
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
+</header>
+
+<main class="content">
+
+<h1>Personal</h1>
+
+<p class="muted">A small set of personal pages.</p>
+
+<ul>
+<li><a href="/personal/movies/">Movie Reviews</a></li>
+<li><a href="/personal/pictures/">Pictures</a></li>
+</ul>
+
+</main>
+
+<footer class="footer">
+© <span id="y"></span>
+</footer>
+
+</div>
+
+<script>
+const y = document.getElementById("y");
+if (y) y.textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
