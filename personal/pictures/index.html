@@ -1,60 +1,175 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pictures — Sam Cargal-Bley</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pictures — Sam Cargal-Bley</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Handgloves&family=Karla:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Handgloves&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/style.css">
+
+<style>
+
+/* Picture Grid */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+  max-width:900px;
+  margin:40px auto;
+}
+
+.photo{
+  text-align:center;
+}
+
+.photo img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+}
+
+.photo figcaption{
+  margin-top:10px;
+  font-family:Handgloves;
+  letter-spacing:.08em;
+  font-size:14px;
+  text-transform:uppercase;
+  color:#666;
+}
+
+/* Mobile */
+
+@media (max-width:700px){
+
+  .photo-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .photo img{
+    height:auto;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="header">
-      <h1 class="site-title">Sam Cargal-Bley</h1>
-      <div class="site-location">New York, New York</div>
 
-      <nav class="nav">
-        <a href="/">About</a>
-        <a href="/thoughts/">Thoughts</a>
-        <a href="/blogs/">Blogs</a>
-        <a aria-current="page" href="/personal/">Personal</a>
-      </nav>
+<div class="wrap">
 
-      <nav class="subnav">
-        <a href="/personal/movies/">Movie Reviews</a>
-        <a aria-current="page" href="/personal/pictures/">Pictures</a>
-      </nav>
-    </header>
+<header class="header">
 
-    <main class="content pictures-page">
-      <h1>Pictures</h1>
+<h1 class="site-title">Sam Cargal-Bley</h1>
+<div class="site-location">New York, New York</div>
 
-      <div class="photo-grid">
-        <figure>
-          <img src="/assets/photos/placeholder-1.jpg" alt="Photo" loading="lazy">
-          <figcaption>Hoboken</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/photos/placeholder-2.jpg" alt="Photo" loading="lazy">
-          <figcaption>New York</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/photos/placeholder-3.jpg" alt="Photo" loading="lazy">
-          <figcaption>Somewhere</figcaption>
-        </figure>
-      </div>
-    </main>
+<nav class="nav">
+<a href="/">About</a>
+<a href="/thoughts/">Thoughts</a>
+<a href="/blogs/">Blogs</a>
+<a aria-current="page" href="/personal/">Personal</a>
+</nav>
 
-    <footer class="footer">© <span id="y"></span></footer>
-  </div>
+<nav class="subnav">
+<a href="/personal/movies/">Movie Reviews</a>
+<a aria-current="page" href="/personal/pictures/">Pictures</a>
+</nav>
 
-  <script>
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
+</header>
+
+
+<main class="content pictures-page">
+
+<h1>Pictures</h1>
+
+<div class="photo-grid">
+
+<!-- FIRST ROW -->
+
+<figure class="photo">
+<img src="/assets/photos/Am Stadtpark.JPG" alt="Am Stadtpark">
+<figcaption>Vienna</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Honfleur.JPG" alt="Honfleur">
+<figcaption>Honfleur</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Les Mesnil-sur-Blangy.JPG" alt="Les Mesnil-sur-Blangy">
+<figcaption>Les Mesnil-sur-Blangy</figcaption>
+</figure>
+
+
+<!-- OTHER PHOTOS -->
+
+<figure class="photo">
+<img src="/assets/photos/Pigalle.JPG" alt="Pigalle">
+<figcaption>Pigalle</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Normandy.JPG" alt="Normandy">
+<figcaption>Normandy</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Paris - 6th Arr..JPG" alt="Paris 6th">
+<figcaption>Paris — 6th</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Paris - 16th Arr..JPG" alt="Paris 16th">
+<figcaption>Paris — 16th</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Place du Vieux-Marché.JPG" alt="Rouen">
+<figcaption>Rouen</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Prague.JPG" alt="Prague">
+<figcaption>Prague</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Seine River.JPG" alt="Seine">
+<figcaption>Seine</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Staré Město.JPG" alt="Old Town">
+<figcaption>Prague — Old Town</figcaption>
+</figure>
+
+<figure class="photo">
+<img src="/assets/photos/Victoria Peak.jpeg" alt="Victoria Peak">
+<figcaption>Hong Kong</figcaption>
+</figure>
+
+</div>
+
+</main>
+
+<footer class="footer">© <span id="y"></span></footer>
+
+</div>
+
+<script>
+document.getElementById("y").textContent =
+new Date().getFullYear();
+</script>
+
 </body>
 </html>
