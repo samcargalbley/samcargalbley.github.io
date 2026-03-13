@@ -274,32 +274,38 @@ a:hover{
 
 .photo-grid{
   display:grid;
-  grid-template-columns:repeat(3, 220px);
+  grid-template-columns:repeat(3, 300px);
   justify-content:center;
-  column-gap:70px;
-  row-gap:40px;
-  margin-top:28px;
+  column-gap:100px;
+  row-gap:80px;
+  margin-top:36px;
 }
 
-.photo-grid figure{
-  margin:0;
+.photo{
+  text-align:center;
+  transition:transform .25s ease, opacity .25s ease;
 }
 
-.photo-grid img{
-  width:220px;
-  height:220px;
+.photo:hover{
+  transform:translateY(-4px);
+  opacity:.95;
+}
+
+.photo img{
+  width:300px;
+  height:300px;
   object-fit:cover;
   display:block;
-  border-radius:6px;
+  border-radius:8px;
 }
 
-.photo-grid figcaption{
-  margin-top:10px;
+.photo figcaption{
+  margin-top:12px;
   text-align:center;
   color:var(--muted);
   font-family:var(--display);
   font-size:13px;
-  letter-spacing:.10em;
+  letter-spacing:.08em;
   text-transform:uppercase;
 }
 
@@ -414,3 +420,4 @@ a:hover{
     margin:0 0 10px 0;
   }
 }
+
