@@ -1,98 +1,433 @@
-<!doctype html>
-<html lang="en">
+:root{
+  --bg:#fbfbfb;
+  --fg:#111111;
+  --text:#2a2a2a;
+  --muted:#7a7a7a;
+  --rule:#ececec;
+  --max:1100px;
 
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  --display:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-<title>Sam Cargal-Bley</title>
-<meta name="description" content="Sam Cargal-Bley" />
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+html{
+  scroll-behavior:smooth;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.75;
+  letter-spacing:0;
+}
 
-<link rel="stylesheet" href="/assets/style.css">
-</head>
+/* ================= WRAP ================= */
 
-<body>
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:80px 32px 60px;
+}
 
-<div class="wrap">
+/* ================= HEADER ================= */
 
-<header class="header">
+.header{
+  text-align:center;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:34px;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
 
-<h1 class="site-title">Sam Cargal-Bley</h1>
+.site-title{
+  margin:0 0 14px 0;
+  font-family:var(--display);
+  font-weight:400;
+  font-size:46px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--fg);
+}
 
-<div class="site-location">
-New York, New York
-</div>
+.site-location{
+  margin:0 0 14px 0;
+  color:var(--muted);
+  font-family:var(--body);
+  font-size:15px;
+}
 
-<nav class="nav">
-<a aria-current="page" href="/">About</a>
-<a href="/thoughts/">Thoughts</a>
-<a href="/blogs/">Blogs</a>
-<a href="/personal/">Personal</a>
-</nav>
+.nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:24px;
+  font-family:var(--display);
+  font-size:15px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 
-</header>
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+}
 
-<main class="content">
+.nav a:hover{
+  color:var(--fg);
+}
 
-<h1>About</h1>
+.nav a[aria-current="page"]{
+  color:var(--fg);
+  font-weight:500;
+}
 
-<p class="muted">Work in progress.</p>
+/* Personal subnav */
+.subnav{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
 
-<p>
-This began as an attempt to bring some order to the places, ideas, and people I find myself returning to. My interests don’t follow a single line — movies, soccer, music, photography, and an underdeveloped curiosity about art all sit alongside my fascination with the energy transition and the forces that drive how businesses grow and compete.
-</p>
+.subnav a{
+  color:var(--muted);
+  text-decoration:none;
+}
 
-<p>
-So while you wait, perhaps impatiently, for thoughts on the former, I hope you’ll take some time to explore the latter.
-</p>
+.subnav a:hover{
+  color:var(--fg);
+}
 
-<p>
-Eventually, when confidence catches up with intention, I’d like this to become a space for my own writing: a place for observations, unfinished ideas, and questions (and attempts at answers) about the energy transition, infrastructure, and the systems that shape everyday life often unnoticed. Think of it less as a finished argument and more as a record of things I’m trying to understand.
-</p>
+.subnav a[aria-current="page"]{
+  color:var(--fg);
+  font-weight:500;
+}
 
-<h2>Contact</h2>
+/* ================= LAYOUT ================= */
 
-<div class="contact">
-<ul>
-<li><a href="https://substack.com/@samcargalbley">Substack</a></li>
-<li><a href="mailto:samcargalbley@gmail.com">Email</a></li>
-<li><a href="https://www.linkedin.com/in/samcargalbley">LinkedIn</a></li>
-</ul>
-</div>
+.layout{
+  display:flex;
+  gap:72px;
+  align-items:flex-start;
+}
 
-</main>
+.sidebar{
+  flex:0 0 200px;
+  position:sticky;
+  top:120px;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.42;
+  transition:opacity .85s ease;
+}
 
-<footer class="footer">
-© <span id="y"></span>
-</footer>
+body.scrolling .sidebar{
+  opacity:1;
+}
 
-</div>
+.sidebar ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
 
-<script>
-const y = document.getElementById("y");
-if (y) y.textContent = new Date().getFullYear();
+.sidebar a{
+  color:var(--muted);
+  text-decoration:none;
+  display:inline-block;
+  transition:color .25s ease, letter-spacing .25s ease;
+}
 
-let scrollTimer;
-const SCROLL_ACTIVATE_PX = 800;
-const FADE_AFTER_MS = 800;
+.sidebar a:hover{
+  color:var(--fg);
+}
 
-window.addEventListener("scroll", () => {
-if (window.scrollY < SCROLL_ACTIVATE_PX) return;
+.sidebar a.is-active,
+.sidebar a[aria-current="page"]{
+  color:var(--fg);
+  font-weight:600;
+  letter-spacing:.02em;
+}
 
-document.body.classList.add("scrolling");
+.content{
+  flex:1 1 auto;
+  max-width:720px;
+}
 
-clearTimeout(scrollTimer);
+/* wider gallery pages */
+.movies-page,
+.pictures-page{
+  max-width:100%;
+  margin-left:-12px;
+  margin-right:-12px;
+}
 
-scrollTimer = setTimeout(() => {
-document.body.classList.remove("scrolling");
-}, FADE_AFTER_MS);
-});
-</script>
+/* ================= TYPE ================= */
 
-</body>
-</html>
+h1, h2{
+  font-family:var(--display);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--fg);
+}
+
+h1{
+  font-size:20px;
+  margin:0 0 18px 0;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  font-weight:500;
+}
+
+h2{
+  font-size:17px;
+  margin:42px 0 12px 0;
+  font-weight:500;
+  scroll-margin-top:140px;
+}
+
+p{
+  margin:0 0 18px 0;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+  transition:opacity .2s ease;
+}
+
+a:hover{
+  opacity:.72;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.contact a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+/* ================= THOUGHTS ================= */
+
+.thoughts-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.thoughts-list li{
+  margin:0 0 14px 0;
+}
+
+.thoughts-date{
+  font-family:var(--display);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ================= BLOG POSTS ================= */
+
+.posts{
+  list-style:none;
+  padding-left:0;
+  margin:0 0 20px 0;
+}
+
+.posts li{
+  margin-left:18px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  border-top:1px solid var(--rule);
+  margin-top:44px;
+  padding-top:18px;
+  color:var(--muted);
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  display:flex;
+  justify-content:center;
+}
+
+/* ================= PHOTO GRID ================= */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 300px);
+  justify-content:center;
+  column-gap:100px;
+  row-gap:80px;
+  margin-top:36px;
+}
+
+.photo-grid figure{
+  margin:0;
+  text-align:center;
+}
+
+.photo-grid img{
+  width:300px;
+  height:300px;
+  object-fit:cover;
+  display:block;
+  border-radius:8px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.photo-grid figure:hover img{
+  transform:translateY(-4px);
+  opacity:.95;
+}
+
+.photo-grid figcaption{
+  margin-top:12px;
+  text-align:center;
+  color:var(--muted);
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ================= MOVIES GRID ================= */
+
+.movie-grid{
+  --poster:220px;
+  display:grid;
+  grid-template-columns:repeat(3, 320px);
+  justify-content:center;
+  column-gap:110px;
+  row-gap:80px;
+  margin-top:36px;
+}
+
+.movie{
+  width:320px;
+  text-align:center;
+}
+
+.movie img{
+  width:var(--poster);
+  height:330px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 16px auto;
+  border-radius:8px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.movie:hover img{
+  transform:translateY(-4px);
+  opacity:.95;
+}
+
+.movie h2{
+  margin:14px 0 12px 0;
+  font-size:17px;
+}
+
+.movie p{
+  margin:0 auto 12px auto;
+  max-width:280px;
+  color:#3a3a3a;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.65;
+  text-transform:none;
+  letter-spacing:0;
+}
+
+.movie .reviewer{
+  margin:0;
+  color:var(--muted);
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:740px){
+  body{
+    font-size:16px;
+  }
+
+  .wrap{
+    padding:56px 20px 44px;
+  }
+
+  .layout{
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .sidebar{
+    position:relative;
+    top:auto;
+    opacity:1;
+  }
+
+  .movies-page,
+  .pictures-page{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+    justify-content:stretch;
+    row-gap:44px;
+  }
+
+  .photo-grid img{
+    width:100%;
+    height:auto;
+  }
+
+  .movie-grid{
+    grid-template-columns:1fr;
+    justify-content:stretch;
+    row-gap:52px;
+  }
+
+  .movie{
+    width:auto;
+    text-align:left;
+  }
+
+  .movie img{
+    width:220px;
+    height:330px;
+    margin:0 0 16px 0;
+  }
+
+  .movie p{
+    max-width:none;
+    margin:0 0 12px 0;
+  }
+}
