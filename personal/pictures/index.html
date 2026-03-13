@@ -100,9 +100,55 @@
     <footer class="footer">© <span id="y"></span></footer>
   </div>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
   <script>
     const y = document.getElementById("y");
     if (y) y.textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+
+    const photos = document.querySelectorAll(".photo img");
+
+    function openLightbox(src, alt, captionText){
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || "";
+      lightboxCaption.textContent = captionText || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    photos.forEach(img => {
+      img.style.cursor = "zoom-in";
+
+      img.addEventListener("click", () => {
+        const figure = img.closest(".photo");
+        const caption = figure ? figure.querySelector("figcaption") : null;
+        openLightbox(img.src, img.alt, caption ? caption.textContent : "");
+      });
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+    });
   </script>
 </body>
 </html>
