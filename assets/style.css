@@ -379,6 +379,56 @@ a:hover{
   text-transform:uppercase;
 }
 
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.82);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+  z-index:9999;
+}
+
+.lightbox.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.lightbox img{
+  max-width:min(92vw, 1200px);
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  transform:scale(.98);
+  transition:transform .2s ease;
+}
+
+.lightbox.is-open img{
+  transform:scale(1);
+}
+
+.lightbox-caption{
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#f2f2f2;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-align:center;
+}
+
 /* ================= MOBILE ================= */
 
 @media (max-width:740px){
@@ -439,3 +489,4 @@ a:hover{
     margin:0 0 12px 0;
   }
 }
+
