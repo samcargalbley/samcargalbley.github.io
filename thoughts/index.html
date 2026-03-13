@@ -1,129 +1,107 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thoughts — Sam Cargal-Bley</title>
+  <meta name="description" content="Thoughts — Sam Cargal-Bley" />
 
-<title>Thoughts — Sam Cargal-Bley</title>
-<meta name="description" content="Thoughts — Sam Cargal-Bley" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="/assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <div class="site-location">New York, New York</div>
 
-<div class="wrap">
+      <nav class="nav">
+        <a href="/">About</a>
+        <a aria-current="page" href="/thoughts/">Thoughts</a>
+        <a href="/blogs/">Blogs</a>
+        <a href="/personal/">Personal</a>
+      </nav>
+    </header>
 
-<header class="header">
+    <div class="layout">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#t-2026-02-19">2026-02-19</a></li>
+          <li><a href="#t-2026-02-18">2026-02-18</a></li>
+          <li><a href="#t-2026-02-17">2026-02-17</a></li>
+        </ul>
+      </aside>
 
-<h1 class="site-title">Sam Cargal-Bley</h1>
-<div class="site-location">New York, New York</div>
+      <main class="content">
+        <h1>Thoughts</h1>
 
-<nav class="nav">
-<a href="/">About</a>
-<a aria-current="page" href="/thoughts/">Thoughts</a>
-<a href="/blogs/">Blogs</a>
-<a href="/personal/">Personal</a>
-</nav>
+        <ul class="thoughts-list">
+          <li id="t-2026-02-19">
+            <span class="thoughts-date">2026-02-19</span> — Set up this site.
+          </li>
+          <li id="t-2026-02-18">
+            <span class="thoughts-date">2026-02-18</span> — Researched how to create this site.
+          </li>
+          <li id="t-2026-02-17">
+            <span class="thoughts-date">2026-02-17</span> — Thought of this site.
+          </li>
+        </ul>
+      </main>
+    </div>
 
-</header>
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
 
-<div class="layout">
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
 
-<aside class="sidebar">
-<ul>
-<li><a href="#t-2026-02-19">2026-02-19</a></li>
-<li><a href="#t-2026-02-18">2026-02-18</a></li>
-<li><a href="#t-2026-02-17">2026-02-17</a></li>
-</ul>
-</aside>
+    let scrollTimer;
+    const SCROLL_ACTIVATE_PX = 800;
+    const FADE_AFTER_MS = 800;
 
-<main class="content">
-
-<h1>Thoughts</h1>
-
-<ul class="thoughts-list">
-<li id="t-2026-02-19">
-<span class="thoughts-date">2026-02-19</span> — Set up this site.
-</li>
-
-<li id="t-2026-02-18">
-<span class="thoughts-date">2026-02-18</span> — Researched how to create this site.
-</li>
-
-<li id="t-2026-02-17">
-<span class="thoughts-date">2026-02-17</span> — Thought of this site.
-</li>
-</ul>
-
-</main>
-
-</div>
-
-<footer class="footer">
-© <span id="y"></span>
-</footer>
-
-</div>
-
-<script>
-const y = document.getElementById("y");
-if (y) y.textContent = new Date().getFullYear();
-
-let scrollTimer;
-const SCROLL_ACTIVATE_PX = 800;
-const FADE_AFTER_MS = 800;
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY < SCROLL_ACTIVATE_PX) return;
-
-  document.body.classList.add("scrolling");
-  clearTimeout(scrollTimer);
-
-  scrollTimer = setTimeout(() => {
-    document.body.classList.remove("scrolling");
-  }, FADE_AFTER_MS);
-});
-
-(function () {
-  const sidebar = document.querySelector(".sidebar");
-  if (!sidebar) return;
-
-  const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
-  const sections = links
-    .map(link => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-
-  if (!sections.length) return;
-
-  function updateActive() {
-    let current = sections[0];
-
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 160) {
-        current = section;
-      }
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < SCROLL_ACTIVATE_PX) return;
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => document.body.classList.remove("scrolling"), FADE_AFTER_MS);
     });
 
-    links.forEach(link => link.classList.remove("is-active"));
+    (function () {
+      const sidebar = document.querySelector(".sidebar");
+      if (!sidebar) return;
 
-    const activeLink = sidebar.querySelector(`a[href="#${current.id}"]`);
-    if (activeLink) activeLink.classList.add("is-active");
-  }
+      const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+      const sections = links
+        .map(link => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
 
-  window.addEventListener("scroll", updateActive, { passive: true });
-  window.addEventListener("load", updateActive);
+      if (!sections.length) return;
 
-  updateActive();
-})();
-</script>
+      function updateActive() {
+        let current = sections[0];
 
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 160) {
+            current = section;
+          }
+        });
+
+        links.forEach(link => link.classList.remove("is-active"));
+
+        const activeLink = sidebar.querySelector(`a[href="#${current.id}"]`);
+        if (activeLink) activeLink.classList.add("is-active");
+      }
+
+      window.addEventListener("scroll", updateActive, { passive: true });
+      window.addEventListener("load", updateActive);
+
+      updateActive();
+    })();
+  </script>
 </body>
 </html>
