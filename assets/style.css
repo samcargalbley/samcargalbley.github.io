@@ -1,492 +1,158 @@
-:root{
-  --bg:#fbfbfb;
-  --fg:#111111;
-  --text:#2a2a2a;
-  --muted:#7a7a7a;
-  --rule:#ececec;
-  --max:1100px;
-
-  --display:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--body);
-  font-size:17px;
-  line-height:1.75;
-  letter-spacing:0;
-}
-
-/* ================= WRAP ================= */
-
-.wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:80px 32px 60px;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-  text-align:center;
-  padding-bottom:18px;
-  border-bottom:1px solid var(--rule);
-  margin-bottom:34px;
-  max-width:760px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.site-title{
-  margin:0 0 14px 0;
-  font-family:var(--display);
-  font-weight:400;
-  font-size:46px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--fg);
-}
-
-.site-location{
-  margin:0 0 14px 0;
-  color:var(--muted);
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.nav{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:24px;
-  font-family:var(--display);
-  font-size:15px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-}
-
-.nav a:hover{
-  color:var(--fg);
-  opacity:1;
-}
-
-.nav a[aria-current="page"]{
-  color:var(--fg);
-  font-weight:500;
-}
-
-/* Personal subnav */
-
-.subnav{
-  margin-top:14px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-.subnav a{
-  color:var(--muted);
-  text-decoration:none;
-}
-
-.subnav a:hover{
-  color:var(--fg);
-  opacity:1;
-}
-
-.subnav a[aria-current="page"]{
-  color:var(--fg);
-  font-weight:500;
-}
-
-/* ================= LAYOUT ================= */
-
-.layout{
-  display:flex;
-  gap:72px;
-  align-items:flex-start;
-}
-
-.sidebar{
-  flex:0 0 200px;
-  position:sticky;
-  top:120px;
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  opacity:.42;
-  transition:opacity .85s ease;
-}
-
-body.scrolling .sidebar{
-  opacity:1;
-}
-
-.sidebar ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.sidebar a{
-  color:var(--muted);
-  text-decoration:none;
-  display:inline-block;
-  transition:color .25s ease, letter-spacing .25s ease;
-}
-
-.sidebar a:hover{
-  color:var(--fg);
-  opacity:1;
-}
-
-.sidebar a.is-active,
-.sidebar a[aria-current="page"]{
-  color:var(--fg);
-  font-weight:600;
-  letter-spacing:.02em;
-}
-
-.content{
-  flex:1 1 auto;
-  max-width:720px;
-}
-
-/* gallery pages */
-
-.movies-page,
-.pictures-page{
-  max-width:100%;
-}
-
-.movies-page{
-  margin-left:-12px;
-  margin-right:-12px;
-}
-
-/* ================= TYPE ================= */
-
-h1, h2{
-  font-family:var(--display);
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  color:var(--fg);
-}
-
-h1{
-  font-size:20px;
-  margin:0 0 18px 0;
-  padding-bottom:14px;
-  border-bottom:1px solid var(--rule);
-  font-weight:500;
-}
-
-h2{
-  font-size:17px;
-  margin:42px 0 12px 0;
-  font-weight:500;
-  scroll-margin-top:140px;
-}
-
-p{
-  margin:0 0 18px 0;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-  transition:opacity .2s ease, color .2s ease;
-}
-
-a:hover{
-  opacity:.72;
-}
-
-.muted{
-  color:var(--muted);
-}
-
-.contact a{
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-
-/* ================= THOUGHTS ================= */
-
-.thoughts-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-}
-
-.thoughts-list li{
-  margin:0 0 14px 0;
-}
-
-.thoughts-date{
-  font-family:var(--display);
-  text-transform:uppercase;
-  letter-spacing:.06em;
-  font-size:14px;
-  color:var(--muted);
-}
-
-/* ================= BLOG POSTS ================= */
-
-.posts{
-  list-style:none;
-  padding-left:0;
-  margin:0 0 20px 0;
-}
-
-.posts li{
-  margin-left:18px;
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-  border-top:1px solid var(--rule);
-  margin-top:44px;
-  padding-top:18px;
-  color:var(--muted);
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  display:flex;
-  justify-content:center;
-}
-
-/* ================= PHOTO GRID ================= */
-
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:40px;
-  max-width:900px;
-  margin:36px auto 0;
-}
-
-.photo{
-  margin:0;
-  text-align:center;
-}
-
-.photo:hover img{
-  transform:translateY(-4px);
-  opacity:.95;
-}
-
-.photo img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-  display:block;
-  border-radius:8px;
-  transition:transform .25s ease, opacity .25s ease;
-}
-
-.photo figcaption{
-  margin-top:12px;
-  text-align:center;
-  color:var(--muted);
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-/* ================= MOVIES GRID ================= */
-
-.movie-grid{
-  --poster:220px;
-  display:grid;
-  grid-template-columns:repeat(3, 320px);
-  justify-content:center;
-  column-gap:110px;
-  row-gap:80px;
-  margin-top:36px;
-}
-
-.movie{
-  width:320px;
-  text-align:center;
-  transition:transform .25s ease, opacity .25s ease;
-}
-
-.movie:hover{
-  transform:translateY(-4px);
-  opacity:.95;
-}
-
-.movie img{
-  width:var(--poster);
-  height:330px;
-  object-fit:cover;
-  display:block;
-  margin:0 auto 16px auto;
-  border-radius:8px;
-}
-
-.movie h2{
-  margin:14px 0 12px 0;
-  font-size:17px;
-}
-
-.movie p{
-  margin:0 auto 12px auto;
-  max-width:280px;
-  color:var(--text);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.65;
-  text-transform:none;
-  letter-spacing:0;
-}
-
-.movie .reviewer{
-  margin:0;
-  color:var(--muted);
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-/* ================= LIGHTBOX ================= */
-
-.lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.82);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .2s ease;
-  z-index:9999;
-}
-
-.lightbox.is-open{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.lightbox img{
-  max-width:min(92vw, 1200px);
-  max-height:88vh;
-  width:auto;
-  height:auto;
-  display:block;
-  border-radius:8px;
-  box-shadow:0 20px 60px rgba(0,0,0,.35);
-  transform:scale(.98);
-  transition:transform .2s ease;
-}
-
-.lightbox.is-open img{
-  transform:scale(1);
-}
-
-.lightbox-caption{
-  position:absolute;
-  bottom:18px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#f2f2f2;
-  font-family:var(--display);
-  font-size:13px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  text-align:center;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width:740px){
-  body{
-    font-size:16px;
-  }
-
-  .wrap{
-    padding:56px 20px 44px;
-  }
-
-  .layout{
-    flex-direction:column;
-    gap:24px;
-  }
-
-  .sidebar{
-    position:relative;
-    top:auto;
-    opacity:1;
-  }
-
-  .movies-page,
-  .pictures-page{
-    margin-left:0;
-    margin-right:0;
-  }
-
-  .photo-grid{
-    grid-template-columns:1fr;
-    gap:28px;
-    max-width:none;
-  }
-
-  .photo img{
-    height:auto;
-  }
-
-  .movie-grid{
-    grid-template-columns:1fr;
-    justify-content:stretch;
-    row-gap:52px;
-  }
-
-  .movie{
-    width:auto;
-    text-align:left;
-  }
-
-  .movie img{
-    width:220px;
-    height:330px;
-    margin:0 0 16px 0;
-  }
-
-  .movie p{
-    max-width:none;
-    margin:0 0 12px 0;
-  }
-}
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pictures — Sam Cargal-Bley</title>
+  <meta name="description" content="Pictures — Sam Cargal-Bley">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <div class="site-location">New York, New York</div>
+
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/blogs/">Blogs</a>
+        <a aria-current="page" href="/personal/">Personal</a>
+      </nav>
+
+      <nav class="subnav">
+        <a href="/personal/movies/">Movie Reviews</a>
+        <a aria-current="page" href="/personal/pictures/">Pictures</a>
+      </nav>
+    </header>
+
+    <main class="content pictures-page">
+      <h1>Pictures</h1>
+
+      <div class="photo-grid">
+        <figure class="photo">
+          <img src="/assets/photos/Am Stadtpark.JPG" alt="Vienna">
+          <figcaption>Vienna</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Honfleur.JPG" alt="Honfleur">
+          <figcaption>Honfleur</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Les Mesnil-sur-Blangy.JPG" alt="Les Mesnil-sur-Blangy">
+          <figcaption>Les Mesnil-sur-Blangy</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Pigalle.JPG" alt="Pigalle">
+          <figcaption>Pigalle</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Normandy.JPG" alt="Normandy">
+          <figcaption>Normandy</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Paris - 6th Arr..JPG" alt="Paris 6th">
+          <figcaption>Paris — 6th</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Paris - 16th Arr..JPG" alt="Paris 16th">
+          <figcaption>Paris — 16th</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Place du Vieux-Marche.JPG" alt="Rouen">
+          <figcaption>Rouen</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Prague.JPG" alt="Prague">
+          <figcaption>Prague</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Seine River.JPG" alt="Seine">
+          <figcaption>Seine</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Stare Mesto.JPG" alt="Prague Old Town">
+          <figcaption>Prague — Old Town</figcaption>
+        </figure>
+
+        <figure class="photo">
+          <img src="/assets/photos/Victoria Peak.jpeg" alt="Hong Kong">
+          <figcaption>Hong Kong</figcaption>
+        </figure>
+      </div>
+    </main>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const photos = document.querySelectorAll(".photo img");
+
+    function openLightbox(src, alt, captionText) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || "";
+      lightboxCaption.textContent = captionText || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+      lightboxCaption.textContent = "";
+      document.body.style.overflow = "";
+    }
+
+    photos.forEach((img) => {
+      img.style.cursor = "zoom-in";
+
+      img.addEventListener("click", () => {
+        const figure = img.closest(".photo");
+        const caption = figure ? figure.querySelector("figcaption") : null;
+        openLightbox(img.src, img.alt, caption ? caption.textContent : "");
+      });
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
