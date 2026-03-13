@@ -1,158 +1,382 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pictures — Sam Cargal-Bley</title>
-  <meta name="description" content="Pictures — Sam Cargal-Bley">
+:root{
+  --bg:#fbfbfb;
+  --fg:#111111;
+  --text:#2a2a2a;
+  --muted:#7a7a7a;
+  --rule:#ececec;
+  --max:1100px;
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-</head>
+  --display:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-<body>
-  <div class="wrap">
-    <header class="header">
-      <h1 class="site-title">Sam Cargal-Bley</h1>
-      <div class="site-location">New York, New York</div>
+*{ box-sizing:border-box; }
 
-      <nav class="nav">
-        <a href="/">About</a>
-        <a href="/thoughts/">Thoughts</a>
-        <a href="/blogs/">Blogs</a>
-        <a aria-current="page" href="/personal/">Personal</a>
-      </nav>
+html{
+  scroll-behavior:smooth;
+}
 
-      <nav class="subnav">
-        <a href="/personal/movies/">Movie Reviews</a>
-        <a aria-current="page" href="/personal/pictures/">Pictures</a>
-      </nav>
-    </header>
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.75;
+}
 
-    <main class="content pictures-page">
-      <h1>Pictures</h1>
+/* ================= WRAP ================= */
 
-      <div class="photo-grid">
-        <figure class="photo">
-          <img src="/assets/photos/Am Stadtpark.JPG" alt="Vienna">
-          <figcaption>Vienna</figcaption>
-        </figure>
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:80px 32px 60px;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Honfleur.JPG" alt="Honfleur">
-          <figcaption>Honfleur</figcaption>
-        </figure>
+/* ================= HEADER ================= */
 
-        <figure class="photo">
-          <img src="/assets/photos/Les Mesnil-sur-Blangy.JPG" alt="Les Mesnil-sur-Blangy">
-          <figcaption>Les Mesnil-sur-Blangy</figcaption>
-        </figure>
+.header{
+  text-align:center;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:34px;
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Pigalle.JPG" alt="Pigalle">
-          <figcaption>Pigalle</figcaption>
-        </figure>
+.site-title{
+  margin:0 0 14px 0;
+  font-family:var(--display);
+  font-weight:400;
+  font-size:46px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Normandy.JPG" alt="Normandy">
-          <figcaption>Normandy</figcaption>
-        </figure>
+.site-location{
+  margin-bottom:14px;
+  color:var(--muted);
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Paris - 6th Arr..JPG" alt="Paris 6th">
-          <figcaption>Paris — 6th</figcaption>
-        </figure>
+/* ================= NAV ================= */
 
-        <figure class="photo">
-          <img src="/assets/photos/Paris - 16th Arr..JPG" alt="Paris 16th">
-          <figcaption>Paris — 16th</figcaption>
-        </figure>
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  font-family:var(--display);
+  font-size:15px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Place du Vieux-Marche.JPG" alt="Rouen">
-          <figcaption>Rouen</figcaption>
-        </figure>
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Prague.JPG" alt="Prague">
-          <figcaption>Prague</figcaption>
-        </figure>
+.nav a:hover{
+  color:var(--fg);
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Seine River.JPG" alt="Seine">
-          <figcaption>Seine</figcaption>
-        </figure>
+.nav a[aria-current="page"]{
+  color:var(--fg);
+}
 
-        <figure class="photo">
-          <img src="/assets/photos/Stare Mesto.JPG" alt="Prague Old Town">
-          <figcaption>Prague — Old Town</figcaption>
-        </figure>
+/* subnav */
 
-        <figure class="photo">
-          <img src="/assets/photos/Victoria Peak.jpeg" alt="Hong Kong">
-          <figcaption>Hong Kong</figcaption>
-        </figure>
-      </div>
-    </main>
+.subnav{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
 
-    <footer class="footer">© <span id="y"></span></footer>
-  </div>
+.subnav a{
+  color:var(--muted);
+  text-decoration:none;
+}
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <img id="lightbox-image" src="" alt="">
-    <div class="lightbox-caption" id="lightbox-caption"></div>
-  </div>
+.subnav a[aria-current="page"]{
+  color:var(--fg);
+}
 
-  <script>
-    const y = document.getElementById("y");
-    if (y) y.textContent = new Date().getFullYear();
+/* ================= LAYOUT ================= */
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightbox-image");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-    const photos = document.querySelectorAll(".photo img");
+.layout{
+  display:flex;
+  gap:72px;
+  align-items:flex-start;
+}
 
-    function openLightbox(src, alt, captionText) {
-      lightboxImage.src = src;
-      lightboxImage.alt = alt || "";
-      lightboxCaption.textContent = captionText || "";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
+.sidebar{
+  flex:0 0 200px;
+  position:sticky;
+  top:120px;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.45;
+  transition:opacity .5s ease;
+}
 
-    function closeLightbox() {
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      lightboxImage.alt = "";
-      lightboxCaption.textContent = "";
-      document.body.style.overflow = "";
-    }
+body.scrolling .sidebar{
+  opacity:1;
+}
 
-    photos.forEach((img) => {
-      img.style.cursor = "zoom-in";
+.sidebar ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
 
-      img.addEventListener("click", () => {
-        const figure = img.closest(".photo");
-        const caption = figure ? figure.querySelector("figcaption") : null;
-        openLightbox(img.src, img.alt, caption ? caption.textContent : "");
-      });
-    });
+.sidebar a{
+  text-decoration:none;
+  color:var(--muted);
+}
 
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
+.sidebar a.is-active{
+  color:var(--fg);
+  font-weight:600;
+}
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        closeLightbox();
-      }
-    });
-  </script>
-</body>
-</html>
+.content{
+  flex:1;
+  max-width:720px;
+}
+
+/* gallery pages */
+
+.movies-page,
+.pictures-page{
+  max-width:100%;
+}
+
+/* ================= TYPE ================= */
+
+h1,h2{
+  font-family:var(--display);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+h1{
+  font-size:20px;
+  margin-bottom:18px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+}
+
+h2{
+  font-size:17px;
+  margin:40px 0 12px;
+}
+
+p{
+  margin-bottom:18px;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+a:hover{
+  opacity:.7;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  margin-top:44px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+  text-align:center;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ================= PHOTO GRID ================= */
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:40px;
+  max-width:900px;
+  margin:36px auto 0;
+}
+
+.photo{
+  text-align:center;
+}
+
+.photo img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.photo:hover img{
+  transform:translateY(-4px);
+  opacity:.95;
+}
+
+.photo figcaption{
+  margin-top:12px;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ================= MOVIES ================= */
+
+.movie-grid{
+  display:grid;
+  grid-template-columns:repeat(3,320px);
+  justify-content:center;
+  column-gap:110px;
+  row-gap:80px;
+  margin-top:36px;
+}
+
+.movie{
+  width:320px;
+  text-align:center;
+  transition:transform .25s ease;
+}
+
+.movie:hover{
+  transform:translateY(-4px);
+}
+
+.movie img{
+  width:220px;
+  height:330px;
+  object-fit:cover;
+  margin:0 auto 16px;
+  border-radius:8px;
+}
+
+.movie h2{
+  margin-bottom:10px;
+}
+
+.movie p{
+  max-width:280px;
+  margin:0 auto 10px;
+  font-size:16px;
+}
+
+.movie .reviewer{
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ================= LIGHTBOX ================= */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+  z-index:1000;
+}
+
+.lightbox.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.lightbox img{
+  max-width:92vw;
+  max-height:88vh;
+  border-radius:8px;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.lightbox-caption{
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
+  font-family:var(--display);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:740px){
+
+  .wrap{
+    padding:56px 20px;
+  }
+
+  .layout{
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .sidebar{
+    position:relative;
+    top:auto;
+    opacity:1;
+  }
+
+  .photo-grid{
+    grid-template-columns:1fr;
+  }
+
+  .photo img{
+    height:auto;
+  }
+
+  .movie-grid{
+    grid-template-columns:1fr;
+    row-gap:52px;
+  }
+
+  .movie{
+    width:auto;
+    text-align:left;
+  }
+
+  .movie img{
+    margin:0 0 14px 0;
+  }
+
+}
