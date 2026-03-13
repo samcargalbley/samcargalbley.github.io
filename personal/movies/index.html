@@ -1,106 +1,90 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movie Reviews — Sam Cargal-Bley</title>
+  <meta name="description" content="Movie Reviews — Sam Cargal-Bley" />
 
-<title>Movie Reviews — Sam Cargal-Bley</title>
-<meta name="description" content="Movie Reviews — Sam Cargal-Bley" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="/assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <div class="site-location">New York, New York</div>
 
-<div class="wrap">
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/blogs/">Blogs</a>
+        <a aria-current="page" href="/personal/">Personal</a>
+      </nav>
 
-<header class="header">
+      <nav class="subnav">
+        <a aria-current="page" href="/personal/movies/">Movie Reviews</a>
+        <a href="/personal/pictures/">Pictures</a>
+      </nav>
+    </header>
 
-<h1 class="site-title">Sam Cargal-Bley</h1>
-<div class="site-location">New York, New York</div>
+    <main class="content movies-page">
+      <h1>Movie Reviews</h1>
 
-<nav class="nav">
-<a href="/">About</a>
-<a href="/thoughts/">Thoughts</a>
-<a href="/blogs/">Blogs</a>
-<a aria-current="page" href="/personal/">Personal</a>
-</nav>
+      <div class="movie-grid">
+        <article class="movie">
+          <img src="/assets/images/the_silent_partner.jpg" alt="The Silent Partner poster" loading="lazy">
+          <h2>The Silent Partner</h2>
+          <p>A basically sound crime movie outside of the gratuitous and inexplicable aquarial decapitation.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
 
-<nav class="subnav">
-<a aria-current="page" href="/personal/movies/">Movie Reviews</a>
-<a href="/personal/pictures/">Pictures</a>
-</nav>
+        <article class="movie">
+          <img src="/assets/images/the_lion_in_winter.jpg" alt="The Lion in Winter poster" loading="lazy">
+          <h2>The Lion in Winter</h2>
+          <p>Peter “I'd hang you from the walls” O’Toole and Katharine “God put me on earth to outwit you” Hepburn spend two hours making Shakespearean insults sound like love songs while their sons fight over the crown like rats in a sack.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
 
-</header>
+        <article class="movie">
+          <img src="/assets/images/pinnochio.jpg" alt="Pinnochio poster" loading="lazy">
+          <h2>Pinnochio</h2>
+          <p>Disney pulled his punches. Pinocchio kills the cricket in the book.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
 
-<main class="content movies-page">
+        <article class="movie">
+          <img src="/assets/images/27_dresses.jpg" alt="27 Dresses poster" loading="lazy">
+          <h2>27 Dresses</h2>
+          <p>My lovely girlfriend convinced me to watch this movie and I still love her despite this.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
 
-<h1>Movie Reviews</h1>
+        <article class="movie">
+          <img src="/assets/images/blonde_for_a_day.jpg" alt="Blonde for a Day poster" loading="lazy">
+          <h2>Blonde for a Day</h2>
+          <p>Well, that was a movie.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
 
-<div class="movie-grid">
+        <article class="movie">
+          <img src="/assets/images/cross_of_iron.jpg" alt="Cross of Iron poster" loading="lazy">
+          <h2>Cross of Iron</h2>
+          <p>You can tell Peckinpah was drunk while filming this. Partially redeemed by Coburn's acting and that it's an enlisted man's war movie.</p>
+          <p class="reviewer">— Jacob</p>
+        </article>
+      </div>
+    </main>
 
-<article class="movie">
-<img src="/assets/images/the_silent_partner.jpg" alt="The Silent Partner poster" loading="lazy">
-<h2>The Silent Partner</h2>
-<p>A basically sound crime movie outside of the gratuitous and inexplicable aquarial decapitation.</p>
-<p class="reviewer">— Jacob</p>
-</article>
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
 
-<article class="movie">
-<img src="/assets/images/the_lion_in_winter.jpg" alt="The Lion in Winter poster" loading="lazy">
-<h2>The Lion in Winter</h2>
-<p>Peter “I'd hang you from the walls” O’Toole and Katharine “God put me on earth to outwit you” Hepburn spend two hours making Shakespearean insults sound like love songs while their sons fight over the crown like rats in a sack.</p>
-<p class="reviewer">— Jacob</p>
-</article>
-
-<article class="movie">
-<img src="/assets/images/pinnochio.jpg" alt="Pinnochio poster" loading="lazy">
-<h2>Pinnochio</h2>
-<p>Disney pulled his punches. Pinocchio kills the cricket in the book.</p>
-<p class="reviewer">— Jacob</p>
-</article>
-
-<article class="movie">
-<img src="/assets/images/27_dresses.jpg" alt="27 Dresses poster" loading="lazy">
-<h2>27 Dresses</h2>
-<p>My lovely girlfriend convinced me to watch this movie and I still love her despite this.</p>
-<p class="reviewer">— Jacob</p>
-</article>
-
-<article class="movie">
-<img src="/assets/images/blonde_for_a_day.jpg" alt="Blonde for a Day poster" loading="lazy">
-<h2>Blonde for a Day</h2>
-<p>Well, that was a movie.</p>
-<p class="reviewer">— Jacob</p>
-</article>
-
-<article class="movie">
-<img src="/assets/images/cross_of_iron.jpg" alt="Cross of Iron poster" loading="lazy">
-<h2>Cross of Iron</h2>
-<p>You can tell Peckinpah was drunk while filming this. Partially redeemed by Coburn's acting and that it's an enlisted man's war movie.</p>
-<p class="reviewer">— Jacob</p>
-</article>
-
-</div>
-
-</main>
-
-<footer class="footer">
-© <span id="y"></span>
-</footer>
-
-</div>
-
-<script>
-const y = document.getElementById("y");
-if (y) y.textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
