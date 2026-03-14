@@ -233,7 +233,7 @@ a:hover{
 
 .photo img{
   width:100%;
-  height:260px;
+  aspect-ratio:1 / 1;
   object-fit:cover;
   border-radius:8px;
   transition:transform .25s ease, opacity .25s ease;
@@ -382,3 +382,4 @@ a:hover{
 }
 
 }
+
