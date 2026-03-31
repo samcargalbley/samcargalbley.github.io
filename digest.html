@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digest — Sam Cargal-Bley</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="site-title">Sam Cargal-Bley</h1>
+      <div class="site-location">New York, New York</div>
+
+      <nav class="nav">
+        <a href="/">About</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/blogs/">Blogs</a>
+        <a aria-current="page" href="/digest.html">Digest</a>
+        <a href="/personal/">Personal</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar">
+        <ul id="sidebar-list"></ul>
+      </aside>
+
+      <main class="content" id="digest-content">
+        <h1 id="digest-heading">Digest</h1>
+        <p class="muted" id="digest-date"></p>
+      </main>
+    </div>
+
+    <footer class="footer">© <span id="y"></span></footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    fetch("/digest.json")
+      .then(r => r.json())
+      .then(data => {
+        if (data.date) {
+          document.getElementById("digest-date").textContent = data.date;
+        }
+
+        const content = document.getElementById("digest-content");
+        const sidebarList = document.getElementById("sidebar-list");
+
+        (data.sections || []).forEach(section => {
+          const id = section.id || section.title.toLowerCase().replace(/\s+/g, "-");
+
+          // sidebar link
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = "#" + id;
+          a.textContent = section.title;
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+
+          // section heading
+          const h2 = document.createElement("h2");
+          h2.id = id;
+          h2.textContent = section.title;
+          content.appendChild(h2);
+
+          // stories
+          const ul = document.createElement("ul");
+          ul.className = "posts";
+          (section.stories || []).forEach(story => {
+            const item = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = story.url || "#";
+            link.textContent = story.headline;
+            if (story.url) {
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+            }
+            item.appendChild(link);
+            if (story.source) {
+              const src = document.createElement("span");
+              src.className = "muted";
+              src.textContent = " — " + story.source;
+              item.appendChild(src);
+            }
+            ul.appendChild(item);
+          });
+          content.appendChild(ul);
+        });
+
+        // sidebar scroll behaviour (same as blogs page)
+        const sidebar = document.getElementById("sidebar");
+        const links = Array.from(sidebar.querySelectorAll('a[href^="#"]'));
+        const sections = links
+          .map(link => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        if (!sections.length) return;
+
+        function updateActive() {
+          let current = sections[0];
+          sections.forEach(section => {
+            if (section.getBoundingClientRect().top <= 160) current = section;
+          });
+          links.forEach(link => link.classList.remove("is-active"));
+          const activeLink = sidebar.querySelector(`a[href="#${current.id}"]`);
+          if (activeLink) activeLink.classList.add("is-active");
+        }
+
+        window.addEventListener("scroll", updateActive, { passive: true });
+        window.addEventListener("load", updateActive);
+        updateActive();
+      })
+      .catch(() => {
+        document.getElementById("digest-content").insertAdjacentHTML(
+          "beforeend",
+          '<p class="muted">No digest available.</p>'
+        );
+      });
+
+    let scrollTimer;
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 800) return;
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => document.body.classList.remove("scrolling"), 800);
+    });
+  </script>
+</body>
+</html>

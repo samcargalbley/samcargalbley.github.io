@@ -1,0 +1,16 @@
+{
+  "date": "March 30, 2026",
+  "sections": [
+    {
+      "id": "energy",
+      "title": "Energy",
+      "stories": [
+        {
+          "headline": "Example headline goes here",
+          "source": "Source Name",
+          "url": "https://example.com"
+        }
+      ]
+    }
+  ]
+}
